@@ -1,0 +1,64 @@
+# 推演SGI小区块分档与补池
+
+## R — 原文锚点
+
+> 内存需求量上调至8的倍数
+
+出处：§2.2.6–2.2.8，PDF95–99。
+
+> 这个pass by reference的nobjs参数将被修改为实际能够供应的区块数。
+
+出处：§2.2.9–2.2.10，PDF101–104。
+
+## I — 方法解释
+
+该版SGI以字节数选择配置层。1到128字节归到16条自由链，先向上取8的倍数，再以0起算找链。链空时向池请求一批；池不足一批仍可提供部分，不能把每次refill都写成固定获得20块。回收小块是接回自由链，不是立即归还系统。
+
+## A1 — 原书示例或标明的演练
+
+原书例题／程序演示（§2.2.10，PDF104–105，图2-7）：
+
+从空池开始，请求32字节规格的一批20块，系统先取得40块大小的储存。
+第1块交给客户，19块挂free_list[3]，其余20块留作内存池。
+随后64字节规格只能从剩余640字节取得10块；1块交出，9块挂free_list[7]。
+再请求96字节规格时池为空，需重新向heap取空间。
+
+原书报告：32字节链剩19块、64字节链剩9块；第二批后池内剩余为0。96字节请求触发补池。
+
+证据边界：页图104核过数值；96字节附加量只保留原书符号，不声称已换算为整块数。不是本次重跑历史程序的结果。
+
+## A2 — 触发与近邻区分
+
+SGI alloc、free list、内存池、ROUND_UP、128字节阈值或refill追踪。
+
+以本卡输出契约为准；遇到相邻任务再补读object-lifetime，不把一个术语命中当作已经完成任务。
+
+## E — 输入、执行与完成标准
+
+输入：正整数字节数n；补池分析另需bytes_left、heap_size、请求块数和历史链状态。
+1. n>128走第一级；1<=n<=128算rounded=8*ceil(n/8)，index=ceil(n/8)-1。n=128仍是索引15。
+2. 对应链有块则弹出头；无块进入refill。池足够时取所需数量，至少够一块时按整块数供应，否则向系统补池并处理残余。
+3. 释放时用匹配原块大小归还对应链，追踪所有权。
+4. 输出分层、分档、链首变化、池余量和OOM未展开部分。可用stl_lab.py的pool-class检查分档；它不模拟真实地址或并发。
+
+需要代码时先查随包usage资源；没有运行条件应标注推演，不能声称实跑。
+
+## B — 边界与失败信号
+
+0、负数、算术溢出、特殊对齐和多线程不由原书简化模型保证。8/128/20为历史实现参数，不是所有allocator的规范。只有分档输入时不能假造完整内存池状态。
+
+## 相关能力
+
+object-lifetime。依赖与组合关系按本卡A2/E说明使用；不要求每次全包加载。
+
+## 配套资源
+
+路径相对于本文件；脚本需先检查运行条件，不因附带而自动执行。
+
+- [resources/stl_lab.py](../../resources/stl_lab.py)
+- [resources/stl_extensions.py](../../resources/stl_extensions.py)
+- [resources/experiment_audit.py](../../resources/experiment_audit.py)
+- [resources/test_stl_lab.py](../../resources/test_stl_lab.py)
+- [resources/test_stl_extensions.py](../../resources/test_stl_extensions.py)
+- [resources/contract_checks.cpp](../../resources/contract_checks.cpp)
+- [resources/usage.md](../../resources/usage.md)

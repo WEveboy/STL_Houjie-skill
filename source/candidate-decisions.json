@@ -1,0 +1,1361 @@
+[
+  {
+    "candidate_id": "f01",
+    "title": "六组件协作的依赖追踪",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p01",
+    "source": "§1.2，PDF37–39；§6.2，PDF332–336",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f02",
+    "title": "从客户端观察回到实现的阅读闭环",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/source-reading.md",
+    "source": "§4.2.5 PDF156；§4.3.5 PDF169；§4.4.5 PDF189；§6.4.3 PDF360–364",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f03",
+    "title": "储存配置与对象生灭的分阶段管理",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p03",
+    "source": "§2.2.2–2.2.3，PDF84–88",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f04",
+    "title": "SGI双层配置器的分流与回收",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p05",
+    "source": "§2.2.4–2.2.8，PDF88–99",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f05",
+    "title": "refill与内存池的逐级求援",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/pool-allocation.md",
+    "source": "§2.2.9–2.2.10，PDF101–105",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f06",
+    "title": "内存不足处理例程的重试协议",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§2.2.5，PDF91–94",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f07",
+    "title": "未初始化区间构造与回滚",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/object-lifetime.md",
+    "source": "§2.3，PDF106–114",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f08",
+    "title": "用traits统一类迭代器和原生指针",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p08",
+    "source": "§3.3–3.4，PDF121–128",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f09",
+    "title": "迭代器能力驱动的tag dispatch",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p10",
+    "source": "§3.4.5，PDF129–140",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f10",
+    "title": "类型性质驱动的安全优化分派",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§3.7，PDF140–149；§6.4.3，PDF358–364",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f11",
+    "title": "vector三指针状态与扩容事务",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p12",
+    "source": "§4.2.4–4.2.6，PDF155–164",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f12",
+    "title": "环状list的哨兵与节点接合",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/linked-sequences.md",
+    "source": "§4.3，PDF166–179",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f13",
+    "title": "分段deque的逻辑位置映射",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/deque-navigation.md",
+    "source": "§4.4.2–4.4.4，PDF181–188",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f14",
+    "title": "deque端点增长与map扩充的分离",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.4.5–4.4.6，PDF189–203",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f15",
+    "title": "用底层容器接口构成受限容器",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.5–4.6 PDF204–208；§4.8 PDF220–222；§8.2 PDF474",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f16",
+    "title": "隐式heap的上溯与下溯",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/heap-adapters.md",
+    "source": "§4.7，PDF209–218",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f17",
+    "title": "二叉搜索树旋转与红黑插入修复",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§5.1–5.2，PDF239–270",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f18",
+    "title": "set与map的键提取和唯一性封装",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-associative.md",
+    "source": "§5.3–5.6，PDF271–284",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f19",
+    "title": "开链hashtable的定位与重散列",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p25",
+    "source": "§5.7–5.11，PDF285–322",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f20",
+    "title": "从具体数组查找到泛型算法",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.1.5–6.2，PDF330–336",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f21",
+    "title": "数值算法的有序折叠与状态传递",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/numeric-functors.md",
+    "source": "§6.3，PDF337–343",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f22",
+    "title": "copy的生命周期、重叠与分派审查",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p27",
+    "source": "§6.4.3–6.4.4，PDF353–366",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f23",
+    "title": "有序多重集合的双游标合并",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-ranges.md",
+    "source": "§6.5，PDF367–376",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f24",
+    "title": "remove与unique的逻辑压缩后物理删除",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p30",
+    "source": "§6.7.1，PDF395–396、409–413",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f25",
+    "title": "reverse与rotate的能力分支",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/range-reordering.md",
+    "source": "§6.7.1，PDF399–404",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f26",
+    "title": "二分边界定位与比较等价",
+    "kind": "frameworks",
+    "decision": "rejected",
+    "destination": "canonical:p31",
+    "source": "§6.7.2–6.7.4 PDF414–418；§6.7.10 PDF439–441",
+    "reason": "语义重复合并；原候选及所有出处仍保留。"
+  },
+  {
+    "candidate_id": "f27",
+    "title": "字典序相邻排列的局部修复",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/range-reordering.md",
+    "source": "§6.7.5–6.7.6，PDF419–421",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f28",
+    "title": "partial_sort的有界候选堆",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.8，PDF425–427",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f29",
+    "title": "SGI sort的IntroSort回退控制",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/sorting-selection.md",
+    "source": "§6.7.9，PDF428–438",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f30",
+    "title": "inplace_merge的缓冲区自适应归并",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/sorting-selection.md",
+    "source": "§6.7.11、6.7.13，PDF442–448、451–452",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f31",
+    "title": "nth_element的单侧分割选择",
+    "kind": "frameworks",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.12，PDF449–450",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "f32",
+    "title": "可调用对象的策略注入",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/numeric-functors.md",
+    "source": "第7章，PDF453–464",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f33",
+    "title": "插入迭代器把赋值转成容器增长",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-adapters.md",
+    "source": "§8.1.2、8.3.1，PDF466、475–477",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f34",
+    "title": "逆向迭代器的半开边界转换",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-adapters.md",
+    "source": "§8.3.2，PDF477–482",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f35",
+    "title": "流迭代器的惰性读取与输出转发",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-adapters.md",
+    "source": "§8.3.3，PDF482–487",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "f36",
+    "title": "函数配接器的存储与延迟组合",
+    "kind": "frameworks",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/callable-adapters.md",
+    "source": "§8.1.3、8.4，PDF468–473、488–500",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p01",
+    "title": "以组件职责区分储存、遍历、计算与策略",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/source-reading.md",
+    "source": "§1.2，PDF38–39",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p02",
+    "title": "半开区间与可达的尾位置",
+    "kind": "principles",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§1.9.5、§6.1.5，PDF73、330–333",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "p03",
+    "title": "储存配置与对象构造分离",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/object-lifetime.md",
+    "source": "§2.2.2–2.2.3，PDF84–88",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p04",
+    "title": "未初始化内存算法的异常清理责任",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/object-lifetime.md",
+    "source": "§2.3，PDF106–113",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p05",
+    "title": "SGI小区块配置分档公式",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/pool-allocation.md",
+    "source": "§2.2.6–2.2.8，PDF95–99",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p06",
+    "title": "小区块归还自由链表而非立即还给系统",
+    "kind": "principles",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§2.2.7–2.2.8，PDF97–101",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "p07",
+    "title": "内存池能供多少块就回传多少块",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/pool-allocation.md",
+    "source": "§2.2.9–2.2.10，PDF101–104",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p08",
+    "title": "五种迭代器关联型别与指针特化",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-dispatch.md",
+    "source": "§3.3–3.4，PDF121–129",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p09",
+    "title": "按能力而不是容器名字选择迭代器操作",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-dispatch.md",
+    "source": "§3.4.5，PDF129–136",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p10",
+    "title": "advance与distance的代价来自迭代器能力",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-dispatch.md",
+    "source": "§3.4.5，PDF130–140",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p11",
+    "title": "类型性质只在满足语义时许可快速分支",
+    "kind": "principles",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§3.7、§6.4.3，PDF140–148、358–364",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "p12",
+    "title": "vector大小容量与三个边界",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/vector-state.md",
+    "source": "§4.2.4，PDF155",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p13",
+    "title": "vector扩容后原引用和迭代器不能继续沿用",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/vector-state.md",
+    "source": "§4.2.5–4.2.6，PDF156–163",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p14",
+    "title": "list节点地址稳定不等于任意操作都无条件有效",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/linked-sequences.md",
+    "source": "§4.3.3、§4.3.6，PDF166–179",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p15",
+    "title": "list的排序要用成员sort",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/linked-sequences.md",
+    "source": "§4.3.6、§6.7.9，PDF179、428",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p16",
+    "title": "SGI deque缓冲区元素数规则",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/deque-navigation.md",
+    "source": "§4.4.2–4.4.3，PDF181–186",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p17",
+    "title": "deque跨缓冲位移须处理负数向下取整",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/deque-navigation.md",
+    "source": "§4.4.3，PDF186–187",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p18",
+    "title": "容器配接器限制可见操作",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/heap-adapters.md",
+    "source": "§4.5–4.8，PDF204–222",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p19",
+    "title": "隐式堆下标约定不能混用",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/heap-adapters.md",
+    "source": "§4.7.1–4.7.2，PDF210–217",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p20",
+    "title": "堆算法不代替容器增删元素",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/heap-adapters.md",
+    "source": "§4.7.2，PDF212–219",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p21",
+    "title": "红黑树四项不变量",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-associative.md",
+    "source": "§5.2，PDF246–250",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p22",
+    "title": "搜索树性能依赖平衡而非仅搜索次序",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-associative.md",
+    "source": "§5.1，PDF239–246",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p23",
+    "title": "有序容器的key不可随意修改",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-associative.md",
+    "source": "§5.3–5.4，PDF271–282",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p24",
+    "title": "关联式容器优先使用其成员查找",
+    "kind": "principles",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§5.3–5.4，PDF275、280",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "p25",
+    "title": "哈希容器重建必须重新计算bucket",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/hash-table.md",
+    "source": "§5.7，PDF290–300",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p26",
+    "title": "字符串的哈希与相等不能混成指针比较",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/hash-table.md",
+    "source": "§5.8–5.9，PDF311–316",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p27",
+    "title": "复制目标须有可赋值对象或显式插入配接器",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/copy-contract.md",
+    "source": "§6.4.3，PDF353–364",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p28",
+    "title": "复制方向与重叠危险分别核验",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/copy-contract.md",
+    "source": "§6.4.3–6.4.4，PDF353–367",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p29",
+    "title": "有序集合算法按出现次数而非容器名字计算",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-ranges.md",
+    "source": "§6.5，PDF367–375",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p30",
+    "title": "remove与unique返回逻辑新尾而非改变容器大小",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/logical-end.md",
+    "source": "§6.7.1，PDF395–410",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p31",
+    "title": "二分查找边界与比较方向",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-ranges.md",
+    "source": "§6.7.2–6.7.4、6.7.10，PDF414–418、439–441",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p32",
+    "title": "二分比较次数不等于迭代器移动次数",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-ranges.md",
+    "source": "§6.7.2–6.7.3，PDF414–417",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p33",
+    "title": "partial_sort只保证前k项有序",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/sorting-selection.md",
+    "source": "§6.7.8，PDF425–427",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p34",
+    "title": "SGI内省排序的深度预算与小区间阈值",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/sorting-selection.md",
+    "source": "§6.7.9，PDF428–438",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p35",
+    "title": "nth_element保证次序统计量但不保证两侧内部排序",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/sorting-selection.md",
+    "source": "§6.7.12，PDF449–450（已核页图）",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p36",
+    "title": "merge必须有两段同一关系下的有序输入",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/sorting-selection.md",
+    "source": "§6.7.1、6.7.11，PDF391–392、442–448",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p37",
+    "title": "accumulate按序累计不要求交换律或结合律",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/numeric-functors.md",
+    "source": "§6.3.2，PDF338",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p38",
+    "title": "函数对象的可调用性与旧式可配接性不同",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/numeric-functors.md",
+    "source": "第7章，PDF453–457",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p39",
+    "title": "插入迭代器将赋值变成容器插入",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-adapters.md",
+    "source": "§8.3.1，PDF475–477",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p40",
+    "title": "反向迭代器的base是所表示元素后一位置",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-adapters.md",
+    "source": "§8.3.2，PDF477–482",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p41",
+    "title": "流输入迭代器构造时可能读取",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-adapters.md",
+    "source": "§8.3.3，PDF482–487",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p42",
+    "title": "参数绑定与函数合成的顺序必须写成表达式",
+    "kind": "principles",
+    "decision": "verified",
+    "destination": "skills/stl-houjie/references/capabilities/callable-adapters.md",
+    "source": "§8.4，PDF488–499",
+    "reason": "V1限定来源、V2任务推演、V3减少条件遗漏；实际输出另见eval-results，不能由此行替代执行。"
+  },
+  {
+    "candidate_id": "p43",
+    "title": "for_each不修改示例不能泛化为禁止修改元素",
+    "kind": "principles",
+    "decision": "needs_review",
+    "destination": "docs/SOURCE_BOUNDARIES.md 与 source/needs-review.md",
+    "source": "§8.1.3，PDF469–470（已核页图）；对照PDF73源码",
+    "reason": "原书局部普遍化表述有同书反证；不能把禁止修改的原句编译成active规则。修正后的受限语义由numeric-functors承接。"
+  },
+  {
+    "candidate_id": "c01",
+    "title": "32、64、96字节请求共享内存池",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/pool-allocation.md#A1",
+    "source": "§2.2.10，PDF104–105，图2-7",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c02",
+    "title": "同一个find分别遍历vector、list和deque",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-dispatch.md#A1",
+    "source": "§3.1，PDF116–117，3find.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c03",
+    "title": "vector添加元素时大小与容量分别变化",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/vector-state.md#A1",
+    "source": "§4.2.5，PDF156–158，4vector-test.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c04",
+    "title": "vector擦除、批量插入与clear不等于释放容量",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.2.5–4.2.6，PDF157–158",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c05",
+    "title": "list在值3之前插入99并保留原节点迭代器",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.3.5，PDF169–170，4list-test.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c06",
+    "title": "list接合另一条列表后反转与排序",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/linked-sequences.md#A1",
+    "source": "§4.3.6，PDF176–177，图4-8a/b",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c07",
+    "title": "deque两端插入示例与缓冲区单位冲突",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/deque-navigation.md#A1",
+    "source": "§4.4.3、§4.4.5，PDF183–184、189–190",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c08",
+    "title": "vector上的建堆、入堆、出堆和堆排序",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/heap-adapters.md#A1",
+    "source": "§4.7.4，PDF218–219，4heap-test.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c09",
+    "title": "红黑树逐个插入时的旋转和变色",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/ordered-associative.md#A1",
+    "source": "§5.2.7，PDF268–270，图5-19",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c10",
+    "title": "hashtable从53个bucket增长到97个",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/hash-table.md#A1",
+    "source": "§5.7.6，PDF302–305，5hashtable-test.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c11",
+    "title": "copy右移重叠在原生指针与deque上表现不同",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/copy-contract.md#A1",
+    "source": "§6.4.3，PDF354–357，6copy-overlap.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c12",
+    "title": "remove零值只压缩逻辑有效前缀",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/logical-end.md#A1",
+    "source": "§6.7.1 remove，PDF395",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c13",
+    "title": "unique图解只折叠相邻的重复群",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.1 unique，PDF409，图6-6L",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c14",
+    "title": "数值算法用1至5展示初值和折叠方向",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/numeric-functors.md#A1",
+    "source": "§6.3.1，PDF337–338，6numeric.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c15",
+    "title": "相邻差分与部分和往返恢复",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.3.3、6.3.5，PDF340、343",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c16",
+    "title": "sort分割图以枢轴2与16展示双向扫描",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.9，PDF433–434，图6-14a/b",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c17",
+    "title": "nth_element固定秩位置而不保证两侧有序",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/sorting-selection.md#A1",
+    "source": "§6.7.12，PDF449",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c18",
+    "title": "插入、反向及流配接器共同驱动copy",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/iterator-adapters.md#A1",
+    "source": "§8.1.2，PDF467–468，8iterator-adapter.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c19",
+    "title": "bind与compose组合成先加2再乘3",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/capabilities/callable-adapters.md#A1",
+    "source": "§8.1.3，PDF469–470，8compose.cpp",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "c20",
+    "title": "not1配合bind2nd表示不小于12",
+    "kind": "cases",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§8.1.3、8.4，PDF469、488–492",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce01",
+    "title": "混用标准allocator与SGI alloc接口",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§2.2，PDF82–89",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce02",
+    "title": "构造异常后遗漏已成功构造的部分",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§2.3，PDF106–108",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce03",
+    "title": "内存不足处理未设置或无实际释放能力",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§2.2.5，PDF93–94",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce04",
+    "title": "vector扩容后继续使用原迭代器",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.2.5，PDF159–160",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce05",
+    "title": "把list擦除节点的迭代器仍视为有效",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.3.3，PDF166–167",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce06",
+    "title": "list splice位置落入被转移范围",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.3.6，PDF175–178",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce07",
+    "title": "对无随机访问能力的容器调用通用sort",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.3.6、§6.7.9，PDF179、428、436",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce08",
+    "title": "将deque逻辑连续误当作所有对象物理连续",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.4.2–4.4.3，PDF181–186",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce09",
+    "title": "给容器配接器强加遍历或任意排序接口",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.5–4.8、§8.3.2，PDF205–208、222、478",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce10",
+    "title": "没有先追加元素或建立堆就调用堆维护算法",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.7.2，PDF211–219",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce11",
+    "title": "pop_heap后忘记缩小容器",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§4.7.2，PDF215",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce12",
+    "title": "无平衡条件的搜索树退化",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§5.1，PDF239–241",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce13",
+    "title": "随意修改有序容器中的键",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§5.3–5.4，PDF271、276–282",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce14",
+    "title": "C字符串键使用地址相等代替内容相等",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§5.8–5.9，PDF311–316",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce15",
+    "title": "单次哈希遍历看似有序就推导排序保证",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§5.8，PDF312–313",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce16",
+    "title": "未满足合法区间与迭代器能力前提",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.1.5，PDF330–333",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce17",
+    "title": "只有第二起点的双范围算法读过第二序列尾端",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.4.2、§6.7.1，PDF347、352、408",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce18",
+    "title": "copy写入空目标或容量不足的目标",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.4.3，PDF357",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce19",
+    "title": "重叠区间的复制方向错误",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.4.3–6.4.4，PDF354–367",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce20",
+    "title": "将无序hash容器直接交给有序集合算法",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.5、§6.7.1，PDF367、370、372、375、388–392",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce21",
+    "title": "向Compare参数传入任意二元布尔函数",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.1 includes，PDF388–390",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce22",
+    "title": "remove或unique之后仍把原end之前全部当结果",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.1，PDF395–410",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce23",
+    "title": "把unique当作未经组织的全局去重",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.1 unique，PDF409",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce24",
+    "title": "从inplace_merge名字推出零辅助空间",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§6.7.11，PDF442–443",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce25",
+    "title": "无push_front接口却使用front_inserter",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§8.3.1，PDF475–477",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce26",
+    "title": "把reverse iterator的base当成当前元素",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§8.3.2，PDF478–481",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce27",
+    "title": "输入迭代器构造早于提示语而提前等待",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§8.3.3，PDF482–483",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "ce28",
+    "title": "SGI扩展配接器误当成所有标准库接口",
+    "kind": "counter-examples",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/overview.md#补充参考边界",
+    "source": "§8.4.3，PDF493",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g01",
+    "title": "前闭后开区间 [first,last)",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§1.9.5、§6.1.5，PDF73、330",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g02",
+    "title": "空间配置器 allocator / SGI alloc",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§2.2.2–2.2.4，PDF84–89",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g03",
+    "title": "构造与析构 construct / destroy",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§2.2.3，PDF85–88",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g04",
+    "title": "内存池 memory pool",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§2.2.6–2.2.10，PDF95、102–104",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g05",
+    "title": "自由链表 free list",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§2.2.6–2.2.9，PDF95–102",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g06",
+    "title": "未初始化内存算法",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§2.3，PDF106–108",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g07",
+    "title": "迭代器 iterator",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§3.1–3.2，PDF116–117",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g08",
+    "title": "相应型别 associated types",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§3.3–3.4，PDF121–129",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g09",
+    "title": "traits 萃取",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§3.4，PDF124–126",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g10",
+    "title": "偏特化 partial specialization",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§3.4，PDF124",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g11",
+    "title": "迭代器类别 iterator_category",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§3.4.5，PDF129–134",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g12",
+    "title": "标签分派 tag dispatch",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§3.4.5，PDF130–140",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g13",
+    "title": "SGI __type_traits",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§3.7，PDF140–149",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g14",
+    "title": "size 与 capacity",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§4.2.4–4.2.6，PDF155–164",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g15",
+    "title": "deque分段连续空间",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§4.4.1–4.4.4，PDF180–187",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g16",
+    "title": "deque的map与node",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§4.4.2–4.4.4，PDF181–187",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g17",
+    "title": "heap与隐式表述",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§4.7.1–4.7.2，PDF209–217",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g18",
+    "title": "RB-tree 红黑树",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§5.2，PDF246–270",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g19",
+    "title": "hashtable 散列表",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§5.7，PDF285–307",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g20",
+    "title": "bucket 与开链 separate chaining",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§5.7.1–5.7.2，PDF291–294",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g21",
+    "title": "逻辑新尾与remove/unique",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§6.7.1，PDF395、409",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g22",
+    "title": "质变与非质变算法",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§6.1.3–6.1.4，PDF329–330",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g23",
+    "title": "仿函数 functor / function object",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "第7章，PDF453–457",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  },
+  {
+    "candidate_id": "g24",
+    "title": "配接器 adapter",
+    "kind": "glossary",
+    "decision": "reference",
+    "destination": "skills/stl-houjie/references/glossary.md",
+    "source": "§8.1–8.4，PDF465–500",
+    "reason": "作为术语、案例或补充条件保留；未独立编译成一个可发现方法入口。"
+  }
+]

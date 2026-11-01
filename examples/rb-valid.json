@@ -1,0 +1,1 @@
+{"op":"tree-check","root":"r","nodes":[{"id":"r","key":10,"color":"B","left":"l","right":"h"},{"id":"l","key":5,"color":"R","left":null,"right":null},{"id":"h","key":15,"color":"R","left":null,"right":null}]}

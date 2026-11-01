@@ -1,0 +1,689 @@
+{
+  "new_skill": {
+    "planned": 39,
+    "completed": 39,
+    "output_cases": 36,
+    "output_passed": 36,
+    "results": [
+      {
+        "case_id": "E01",
+        "capability": "source-reading",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "source-reading"
+      },
+      {
+        "case_id": "E02",
+        "capability": "source-reading",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "source-reading"
+      },
+      {
+        "case_id": "E03",
+        "capability": "object-lifetime",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "object-lifetime"
+      },
+      {
+        "case_id": "E04",
+        "capability": "object-lifetime",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "object-lifetime"
+      },
+      {
+        "case_id": "E05",
+        "capability": "pool-allocation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "pool-allocation"
+      },
+      {
+        "case_id": "E06",
+        "capability": "pool-allocation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "pool-allocation"
+      },
+      {
+        "case_id": "E07",
+        "capability": "iterator-dispatch",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "iterator-dispatch"
+      },
+      {
+        "case_id": "E08",
+        "capability": "iterator-dispatch",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "iterator-dispatch"
+      },
+      {
+        "case_id": "E09",
+        "capability": "vector-state",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "vector-state"
+      },
+      {
+        "case_id": "E10",
+        "capability": "vector-state",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "vector-state"
+      },
+      {
+        "case_id": "E11",
+        "capability": "linked-sequences",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "linked-sequences"
+      },
+      {
+        "case_id": "E12",
+        "capability": "linked-sequences",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "linked-sequences"
+      },
+      {
+        "case_id": "E13",
+        "capability": "deque-navigation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "deque-navigation"
+      },
+      {
+        "case_id": "E14",
+        "capability": "deque-navigation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "deque-navigation"
+      },
+      {
+        "case_id": "E15",
+        "capability": "heap-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "heap-adapters"
+      },
+      {
+        "case_id": "E16",
+        "capability": "heap-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "heap-adapters"
+      },
+      {
+        "case_id": "E17",
+        "capability": "ordered-associative",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "ordered-associative"
+      },
+      {
+        "case_id": "E18",
+        "capability": "ordered-associative",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "ordered-associative"
+      },
+      {
+        "case_id": "E19",
+        "capability": "hash-table",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "hash-table"
+      },
+      {
+        "case_id": "E20",
+        "capability": "hash-table",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "hash-table"
+      },
+      {
+        "case_id": "E21",
+        "capability": "copy-contract",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "copy-contract"
+      },
+      {
+        "case_id": "E22",
+        "capability": "copy-contract",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "copy-contract"
+      },
+      {
+        "case_id": "E23",
+        "capability": "logical-end",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "logical-end"
+      },
+      {
+        "case_id": "E24",
+        "capability": "logical-end",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "logical-end"
+      },
+      {
+        "case_id": "E25",
+        "capability": "ordered-ranges",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "ordered-ranges"
+      },
+      {
+        "case_id": "E26",
+        "capability": "ordered-ranges",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "ordered-ranges"
+      },
+      {
+        "case_id": "E27",
+        "capability": "sorting-selection",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "sorting-selection"
+      },
+      {
+        "case_id": "E28",
+        "capability": "sorting-selection",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "sorting-selection"
+      },
+      {
+        "case_id": "E29",
+        "capability": "numeric-functors",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "numeric-functors"
+      },
+      {
+        "case_id": "E30",
+        "capability": "numeric-functors",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "numeric-functors"
+      },
+      {
+        "case_id": "E31",
+        "capability": "iterator-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "iterator-adapters"
+      },
+      {
+        "case_id": "E32",
+        "capability": "iterator-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "iterator-adapters"
+      },
+      {
+        "case_id": "E33",
+        "capability": "callable-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "callable-adapters"
+      },
+      {
+        "case_id": "E34",
+        "capability": "callable-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "callable-adapters"
+      },
+      {
+        "case_id": "E35",
+        "capability": "range-reordering",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "range-reordering"
+      },
+      {
+        "case_id": "E36",
+        "capability": "range-reordering",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": "range-reordering"
+      },
+      {
+        "case_id": "N01",
+        "capability": null,
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": null
+      },
+      {
+        "case_id": "N02",
+        "capability": null,
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": null
+      },
+      {
+        "case_id": "N03",
+        "capability": null,
+        "completed": true,
+        "output_passed": true,
+        "field_differences": [],
+        "trigger_passed": true,
+        "route_exact_match": true,
+        "selected_capability": null
+      }
+    ],
+    "trigger_passed": 39,
+    "exact_route_passed": 39
+  },
+  "without_skill": {
+    "planned": 39,
+    "completed": 39,
+    "output_cases": 36,
+    "output_passed": 35,
+    "results": [
+      {
+        "case_id": "E01",
+        "capability": "source-reading",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E02",
+        "capability": "source-reading",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E03",
+        "capability": "object-lifetime",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E04",
+        "capability": "object-lifetime",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E05",
+        "capability": "pool-allocation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E06",
+        "capability": "pool-allocation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E07",
+        "capability": "iterator-dispatch",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E08",
+        "capability": "iterator-dispatch",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E09",
+        "capability": "vector-state",
+        "completed": true,
+        "output_passed": false,
+        "field_differences": [
+          {
+            "field": "capacity",
+            "expected": 6,
+            "actual": null
+          }
+        ]
+      },
+      {
+        "case_id": "E10",
+        "capability": "vector-state",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E11",
+        "capability": "linked-sequences",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E12",
+        "capability": "linked-sequences",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E13",
+        "capability": "deque-navigation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E14",
+        "capability": "deque-navigation",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E15",
+        "capability": "heap-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E16",
+        "capability": "heap-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E17",
+        "capability": "ordered-associative",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E18",
+        "capability": "ordered-associative",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E19",
+        "capability": "hash-table",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E20",
+        "capability": "hash-table",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E21",
+        "capability": "copy-contract",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E22",
+        "capability": "copy-contract",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E23",
+        "capability": "logical-end",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E24",
+        "capability": "logical-end",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E25",
+        "capability": "ordered-ranges",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E26",
+        "capability": "ordered-ranges",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E27",
+        "capability": "sorting-selection",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E28",
+        "capability": "sorting-selection",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E29",
+        "capability": "numeric-functors",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E30",
+        "capability": "numeric-functors",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E31",
+        "capability": "iterator-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E32",
+        "capability": "iterator-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E33",
+        "capability": "callable-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E34",
+        "capability": "callable-adapters",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E35",
+        "capability": "range-reordering",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "E36",
+        "capability": "range-reordering",
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "N01",
+        "capability": null,
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "N02",
+        "capability": null,
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      },
+      {
+        "case_id": "N03",
+        "capability": null,
+        "completed": true,
+        "output_passed": true,
+        "field_differences": []
+      }
+    ]
+  }
+}

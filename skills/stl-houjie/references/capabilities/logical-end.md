@@ -1,0 +1,64 @@
+# 把remove和unique的逻辑尾转为容器操作
+
+## R — 原文锚点
+
+> 这一算法并不真正从容器中删除那些元素
+
+出处：§6.7.1，PDF395–410。
+
+> 容器大小并未改变
+
+出处：§6.7.1，PDF395–396、409–413。
+
+## I — 方法解释
+
+算法只拿到范围，通常不能调用未知容器的erase。remove稳定地把应保留的元素移到前面，unique只折叠相邻等价群；返回值定义新的有效前缀。物理容器是否变短要由调用者另作决定。
+
+## A1 — 原书示例或标明的演练
+
+原书例题／程序演示（§6.7.1 remove，PDF395）：
+
+对0 1 0 2 0 3 0 4执行remove去掉0。
+保留下来的1、2、3、4依原相对次序被写入前4个位置。
+返回值指向第5个位置，容器自身大小保持8。
+需要容器erase才能真正缩短；尾部残余不应继续当结果遍历。
+
+原书报告：有效范围为1 2 3 4；size不变。
+
+证据边界：OCR；不把历史int示例的尾部值推广到任意类型。不是本次重跑历史程序的结果。
+
+## A2 — 触发与近邻区分
+
+erase-remove、remove没变size、unique没有全局去重、返回new_end后的尾部。
+
+以本卡输出契约为准；遇到相邻任务再补读ordered-ranges；range-reordering，不把一个术语命中当作已经完成任务。
+
+## E — 输入、执行与完成标准
+
+输入：序列、remove值/谓词或unique等价关系、容器类型和是否需要真正擦除。
+1. 先算应保留的有效前缀；unique按相邻群而不是全局集合判断。
+2. 返回new_end并保持原size；不要把[new_end,end)中的某个实测内容写成保证。
+3. 若需要物理删除，对支持的容器执行erase(new_end,end)；若要全局去重，需另给排序/等价/保序要求再选方案。
+4. 输出有效前缀、new_end偏移、原size和擦除后size；logical-end模型用尾部不承诺值来避免误读。
+
+需要代码时先查随包usage资源；没有运行条件应标注推演，不能声称实跑。
+
+## B — 边界与失败信号
+
+list成员remove与通用std::remove契约不同。unique需要合适等价关系；排序会改变顺序，不能为去重静默排序用户数据。
+
+## 相关能力
+
+ordered-ranges；range-reordering。依赖与组合关系按本卡A2/E说明使用；不要求每次全包加载。
+
+## 配套资源
+
+路径相对于本文件；脚本需先检查运行条件，不因附带而自动执行。
+
+- [resources/stl_lab.py](../../resources/stl_lab.py)
+- [resources/stl_extensions.py](../../resources/stl_extensions.py)
+- [resources/experiment_audit.py](../../resources/experiment_audit.py)
+- [resources/test_stl_lab.py](../../resources/test_stl_lab.py)
+- [resources/test_stl_extensions.py](../../resources/test_stl_extensions.py)
+- [resources/contract_checks.cpp](../../resources/contract_checks.cpp)
+- [resources/usage.md](../../resources/usage.md)

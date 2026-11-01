@@ -1,0 +1,10 @@
+{
+  "name": "STL Houjie Skills",
+  "skill": "stl-houjie",
+  "version": "1.0.0",
+  "edition": "第一版",
+  "source": "侯捷《STL源码剖析》简体中文扫描版",
+  "implementation_scope": "SGI STL / GNU-Cygnus C++ 2.91.57",
+  "cangjie_version": "2.5.0",
+  "tag": "edition-v1.0.0"
+}

@@ -1,0 +1,30 @@
+{
+  "source_id": "src-stl-houjie-scan",
+  "title": "STL源码剖析",
+  "author": "侯捷",
+  "edition_note": "用户提供的简体中文扫描版；正文研究 SGI STL，cygnus/GNU C++ 2.91.57。出版年未从版权页核实。",
+  "pdf_pages": 542,
+  "sha256": "0e18999593897abd76fb368b9de4de9914175a255f69673e4acfb6152465702d",
+  "ocr_engine": "Windows.Media.Ocr zh-Hans-CN",
+  "ocr_pages": 535,
+  "missing_ocr_pages": [
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541
+  ],
+  "page_mapping": "全部定位使用 PDF 的 1-based 物理页；插入广告导致与印刷页码无固定偏移。",
+  "native_text_pages": [
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541
+  ],
+  "metadata_publication_note": "PDF535的内嵌书目记2002年06月第1版；未作版权页独立验证。"
+}

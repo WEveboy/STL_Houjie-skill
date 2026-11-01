@@ -1,0 +1,190 @@
+[
+  {
+    "slug": "source-reading",
+    "task": "T01",
+    "refs": [
+      "f02",
+      "p01"
+    ],
+    "case": "c02"
+  },
+  {
+    "slug": "object-lifetime",
+    "task": "T02",
+    "refs": [
+      "p03",
+      "p04",
+      "f07"
+    ],
+    "case": null
+  },
+  {
+    "slug": "pool-allocation",
+    "task": "T03",
+    "refs": [
+      "p05",
+      "p07",
+      "f05"
+    ],
+    "case": "c01"
+  },
+  {
+    "slug": "iterator-dispatch",
+    "task": "T04",
+    "refs": [
+      "p08",
+      "p09",
+      "p10",
+      "f08"
+    ],
+    "case": "c02"
+  },
+  {
+    "slug": "vector-state",
+    "task": "T05",
+    "refs": [
+      "p12",
+      "p13",
+      "f11"
+    ],
+    "case": "c03"
+  },
+  {
+    "slug": "linked-sequences",
+    "task": "T06",
+    "refs": [
+      "f12",
+      "p14",
+      "p15"
+    ],
+    "case": "c06"
+  },
+  {
+    "slug": "deque-navigation",
+    "task": "T07",
+    "refs": [
+      "f13",
+      "p16",
+      "p17"
+    ],
+    "case": "c07"
+  },
+  {
+    "slug": "heap-adapters",
+    "task": "T08",
+    "refs": [
+      "p18",
+      "p19",
+      "p20",
+      "f16"
+    ],
+    "case": "c08"
+  },
+  {
+    "slug": "ordered-associative",
+    "task": "T09",
+    "refs": [
+      "p21",
+      "p22",
+      "p23",
+      "f18"
+    ],
+    "case": "c09"
+  },
+  {
+    "slug": "hash-table",
+    "task": "T10",
+    "refs": [
+      "p25",
+      "p26",
+      "f19"
+    ],
+    "case": "c10"
+  },
+  {
+    "slug": "copy-contract",
+    "task": "T11",
+    "refs": [
+      "p27",
+      "p28",
+      "f22"
+    ],
+    "case": "c11"
+  },
+  {
+    "slug": "logical-end",
+    "task": "T12",
+    "refs": [
+      "p30",
+      "f24"
+    ],
+    "case": "c12"
+  },
+  {
+    "slug": "ordered-ranges",
+    "task": "T12",
+    "refs": [
+      "p29",
+      "p31",
+      "p32",
+      "f23",
+      "f26"
+    ],
+    "case": null
+  },
+  {
+    "slug": "sorting-selection",
+    "task": "T13",
+    "refs": [
+      "p33",
+      "p34",
+      "p35",
+      "p36",
+      "f29",
+      "f30"
+    ],
+    "case": "c17"
+  },
+  {
+    "slug": "numeric-functors",
+    "task": "T14",
+    "refs": [
+      "p37",
+      "p38",
+      "f21",
+      "f32"
+    ],
+    "case": "c14"
+  },
+  {
+    "slug": "iterator-adapters",
+    "task": "T15",
+    "refs": [
+      "p39",
+      "p40",
+      "p41",
+      "f33",
+      "f34",
+      "f35"
+    ],
+    "case": "c18"
+  },
+  {
+    "slug": "callable-adapters",
+    "task": "T15",
+    "refs": [
+      "p42",
+      "f36"
+    ],
+    "case": "c19"
+  },
+  {
+    "slug": "range-reordering",
+    "task": "T13",
+    "refs": [
+      "f25",
+      "f27"
+    ],
+    "case": null
+  }
+]

@@ -1,0 +1,1101 @@
+{
+  "schema_version": 1,
+  "suite_id": "stl-houjie-v1",
+  "target": "stl-houjie",
+  "split_seed": 42,
+  "train_ratio": 0.6,
+  "trigger_cases": [
+    {
+      "case_id": "E01",
+      "prompt": "书中某SGI vector测试的capacity为2、4、8。有人据此说所有现代std::vector必须翻倍。这个推断是否成立？应怎样定位此类结论？ 请说明依据与边界，并在result对象中给出这些字段：universal_growth_requirement, must_separate_spec_and_implementation。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E02",
+      "prompt": "只给出“我电脑上的vector插入崩溃”，没有代码、编译器和标准库版本。现在能写出已经核实的内部调用链吗？ 请说明依据与边界，并在result对象中给出这些字段：can_claim_verified_call_chain, needs_reproducer。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E03",
+      "prompt": "原始储存有5个槽位，复制构造第3个时抛异常，前2个成功。只计算这块目标储存的回滚：销毁几个，回滚后活对象数多少，释放储存是否另有责任？ 请说明依据与边界，并在result对象中给出这些字段：destroy_count, live_after_rollback, deallocation_is_separate。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E04",
+      "prompt": "vector<int> v; v.reserve(8); 然后std::copy三个int到v.begin()。reserve后size和capacity含义是什么，这个普通copy目标有效吗？不要执行危险代码。 请说明依据与边界，并在result对象中给出这些字段：size_after_reserve, copy_destination_valid, reserve_constructs_elements。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E05",
+      "prompt": "按本书SGI第二级配置器公式，121字节请求属于哪一级、上调多大、零基free-list索引多少？ 请说明依据与边界，并在result对象中给出这些字段：level, class_bytes, free_list_index。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E06",
+      "prompt": "按本书SGI配置器，129字节请求属于哪一级？n=0是否可以静默套用小块索引公式？ 请说明依据与边界，并在result对象中给出这些字段：level, zero_input_valid。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E07",
+      "prompt": "在本书traits模型中，const int*的value_type与reference分别是什么？std::list<int>::iterator可以直接喂给std::sort吗？ 请说明依据与边界，并在result对象中给出这些字段：value_type, reference, list_std_sort_valid。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E08",
+      "prompt": "一个只有Forward能力的有效迭代器，能用advance(i,-3)后退吗？若给deque随机存取迭代器，能据此推出整段物理地址连续吗？ 请说明依据与边界，并在result对象中给出这些字段：negative_advance_valid, random_access_implies_contiguous。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E09",
+      "prompt": "限定本项目SGI教学增长公式：原size=3、capacity=4，在index=2插入count=2。新size/capacity及是否重配置？ 请说明依据与边界，并在result对象中给出这些字段：size, capacity, reallocated。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E10",
+      "prompt": "现代vector在容量足够时在中间insert一个元素。地址没重分配，能否断言所有旧迭代器都有效？也能否由本书要求所有实现容量翻倍？ 请说明依据与边界，并在result对象中给出这些字段：all_old_iterators_valid, universal_doubling。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E11",
+      "prompt": "std::list A={1,2},B={9}，将A中指向2的单节点迭代器i用splice移到B末尾。A/B结果是什么？i所指节点身份保留吗？ 请说明依据与边界，并在result对象中给出这些字段：A, B, node_identity_preserved。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E12",
+      "prompt": "分析书中list区间transfer/splice时，position落在待转移[first,last)内部；能直接按普通区间重接步骤执行吗？“重接链接O(1)”能否推出所有splice调用都O(1)？ 请说明依据与边界，并在result对象中给出这些字段：ordinary_range_transfer_valid, all_splice_calls_constant。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E13",
+      "prompt": "只做相对算术：每缓冲8元素，offset=1，delta=-3。按向下取整计算node变化和新offset；真实范围是否合法需另核吗？ 请说明依据与边界，并在result对象中给出这些字段：node_delta, offset, needs_real_bounds_check。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E14",
+      "prompt": "限定书中SGI __deque_buf_size(n,sz)：显式n=32且sizeof(T)=4。每缓冲是32元素还是32字节？现代标准deque是否也要求同一第三模板参数？ 请说明依据与边界，并在result对象中给出这些字段：buffer_elements, is_32_bytes, modern_same_template_required。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E15",
+      "prompt": "已有零基最大堆[9,7,8,1]，只调用pop_heap不pop_back。容器size、有效堆前缀长度、末尾值各是多少？ 请说明依据与边界，并在result对象中给出这些字段：size, heap_size, last_value。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E16",
+      "prompt": "一个空vector，直接调用pop_heap；另一个stack要求通过公开接口随机遍历中间元素。两项前提分别满足吗？ 请说明依据与边界，并在result对象中给出这些字段：empty_pop_valid, stack_public_random_traversal。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E17",
+      "prompt": "按本书红黑规则检查一棵树：根10黑，左5红，右15红，均无其他实节点，空叶黑。颜色与黑高不变量合法吗？旋转应保留哪种键顺序？ 请说明依据与边界，并在result对象中给出这些字段：rb_invariants_valid, rotation_preserves_inorder。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E18",
+      "prompt": "比较器按绝对值排序，-2与2在有序容器里是否比较等价？map元素key能直接原地改成另一键吗？普通BST有序能保证最坏对数高度吗？ 请说明依据与边界，并在result对象中给出这些字段：comparison_equivalent, in_place_key_mutation_valid, bst_order_guarantees_log_height。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E19",
+      "prompt": "整数教学hash(key)=key，keys=[1,6,11]，桶数由5改7。按非负模依输入顺序列出重散列前后bucket索引和元素数。 请说明依据与边界，并在result对象中给出这些字段：old_indices, new_indices, element_count。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E20",
+      "prompt": "两个不同地址的const char*各含文本abc。用地址==当内容相等谓词，能正确实现内容键查找吗？一次遍历看似递增能证明hashtable有序吗？ 请说明依据与边界，并在result对象中给出这些字段：pointer_equality_is_content_equality, one_traversal_proves_order。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E21",
+      "prompt": "已有整数数组[1,2,3,4,5]，copy_backward源[0,3)、目标尾5。是否合法？给出整个结果及返回起点索引。 请说明依据与边界，并在result对象中给出这些字段：valid, values, return_index。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E22",
+      "prompt": "已有数组[1,2,3,4,5]，普通顺序copy的源[0,3)、目标起点1。某指针memmove优化可能输出正确，这能使调用满足copy前提吗？不要运行。 请说明依据与边界，并在result对象中给出这些字段：valid, optimization_waives_preconditions。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E23",
+      "prompt": "对[0,1,0,2,0,3]用通用remove删除0。只报告有效前缀、new_end索引、算法后size、再erase尾后的size。 请说明依据与边界，并在result对象中给出这些字段：valid_prefix, new_end, size_before_erase, size_after_erase。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E24",
+      "prompt": "对[1,1,2,1,1]执行通用unique。给有效前缀和size；它是未经排序的全局去重吗？尾部值能作固定断言吗？ 请说明依据与边界，并在result对象中给出这些字段：valid_prefix, size, global_deduplication, tail_values_guaranteed。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E25",
+      "prompt": "对[1,2,2,4]以默认小于查2，lower/upper/equal_range索引是多少？ 请说明依据与边界，并在result对象中给出这些字段：lower, upper, equal_range。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E26",
+      "prompt": "默认升序lower_bound输入[3,1,2]查2，这个范围是否满足所需partition？在合法有序list上比较次数对数就意味着迭代器移动也必然对数吗？ 请说明依据与边界，并在result对象中给出这些字段：input_partition_valid, list_movement_logarithmic。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E27",
+      "prompt": "要求9个整数中前3个已排序且是最小的3个，其余任意；应选哪种标准算法？若改成只要第3秩与分区，需要两侧内部有序吗？ 请说明依据与边界，并在result对象中给出这些字段：algorithm, nth_sides_sorted_required。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E28",
+      "prompt": "对[2,2,2,2]执行nth_element(nth=begin()+2)，能否要求左边所有元素严格小于右边？能否用原来nth的数值定义结果秩？ 请说明依据与边界，并在result对象中给出这些字段：strict_cross_partition_required, original_nth_value_defines_rank。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E29",
+      "prompt": "accumulate对[1,2,3]，init=10，op为minus，结果多少？for_each用[](int& x){x+=10;}作用于[1,2,3]，元素能变化吗，结果是什么？ 请说明依据与边界，并在result对象中给出这些字段：accumulate, for_each_can_mutate, values。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E30",
+      "prompt": "accumulate初值10、空序列，结果是多少？若op不结合，能否在保持其顺序语义的名义下任意并行重排？for_each普通返回值会写回元素吗？ 请说明依据与边界，并在result对象中给出这些字段：empty_result, arbitrary_reordering_valid, for_each_return_written_back。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E31",
+      "prompt": "vector v=[10,20,30]，r=rbegin()+1。*r与r.base()的正向索引各是多少？copy(v.rbegin(),v.rend(),back_inserter(empty_vector))的结果是什么？ 请说明依据与边界，并在result对象中给出这些字段：dereferenced, base_index, copied。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E32",
+      "prompt": "rend().base()==begin()能否据此解引用rend？对vector可以用front_inserter吗？构造istream_iterator是否一定没有读取副作用？ 请说明依据与边界，并在result对象中给出这些字段：rend_dereference_valid, vector_front_inserter_supported, construction_guaranteed_no_read。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E33",
+      "prompt": "仅按书中旧式绑定语义，用minus(a,b)=a-b，bind1st(minus,3)与bind2nd(minus,3)各在x=10得到多少？compose(f,g)中f(x)=3*x,g(x)=x+2，在x=4的结果？ 请说明依据与边界，并在result对象中给出这些字段：bind_first, bind_second, composed。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E34",
+      "prompt": "旧bind2nd或compose接口在某现代C++模式不可用。能否仅凭书中示例声称所有现代库仍提供它们？lambda捕获引用指向已销毁对象，表达式等价能保证引用还有效吗？ 请说明依据与边界，并在result对象中给出这些字段：old_api_universally_available, equivalence_guarantees_lifetime。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E35",
+      "prompt": "[1,2,3,4,5]以middle偏移2执行rotate，结果？[1,3,2]执行next_permutation，序列及布尔返回值？ 请说明依据与边界，并在result对象中给出这些字段：rotated, next, has_next。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "E36",
+      "prompt": "[3,2,1]执行next_permutation，返回值与结果是什么？普通单向迭代器是否满足reverse的双向能力要求？ 请说明依据与边界，并在result对象中给出这些字段：has_next, values, forward_reverse_valid。",
+      "expected": "should_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "N01",
+      "prompt": "今晚吃什么，给我两个简单选择。",
+      "expected": "should_not_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "N02",
+      "prompt": "帮我把求职自我介绍改得简洁些。",
+      "expected": "should_not_trigger",
+      "runs": 1
+    },
+    {
+      "case_id": "N03",
+      "prompt": "解释Python字典的基本用法，不涉及C++或STL。",
+      "expected": "should_not_trigger",
+      "runs": 1
+    }
+  ],
+  "output_cases": [
+    {
+      "case_id": "E01",
+      "prompt": "书中某SGI vector测试的capacity为2、4、8。有人据此说所有现代std::vector必须翻倍。这个推断是否成立？应怎样定位此类结论？ 请说明依据与边界，并在result对象中给出这些字段：universal_growth_requirement, must_separate_spec_and_implementation。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.universal_growth_requirement",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.must_separate_spec_and_implementation",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E02",
+      "prompt": "只给出“我电脑上的vector插入崩溃”，没有代码、编译器和标准库版本。现在能写出已经核实的内部调用链吗？ 请说明依据与边界，并在result对象中给出这些字段：can_claim_verified_call_chain, needs_reproducer。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.can_claim_verified_call_chain",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.needs_reproducer",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E03",
+      "prompt": "原始储存有5个槽位，复制构造第3个时抛异常，前2个成功。只计算这块目标储存的回滚：销毁几个，回滚后活对象数多少，释放储存是否另有责任？ 请说明依据与边界，并在result对象中给出这些字段：destroy_count, live_after_rollback, deallocation_is_separate。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.destroy_count",
+          "expected": 2
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.live_after_rollback",
+          "expected": 0
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.deallocation_is_separate",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E04",
+      "prompt": "vector<int> v; v.reserve(8); 然后std::copy三个int到v.begin()。reserve后size和capacity含义是什么，这个普通copy目标有效吗？不要执行危险代码。 请说明依据与边界，并在result对象中给出这些字段：size_after_reserve, copy_destination_valid, reserve_constructs_elements。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.size_after_reserve",
+          "expected": 0
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.copy_destination_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.reserve_constructs_elements",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E05",
+      "prompt": "按本书SGI第二级配置器公式，121字节请求属于哪一级、上调多大、零基free-list索引多少？ 请说明依据与边界，并在result对象中给出这些字段：level, class_bytes, free_list_index。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.level",
+          "expected": 2
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.class_bytes",
+          "expected": 128
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.free_list_index",
+          "expected": 15
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E06",
+      "prompt": "按本书SGI配置器，129字节请求属于哪一级？n=0是否可以静默套用小块索引公式？ 请说明依据与边界，并在result对象中给出这些字段：level, zero_input_valid。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.level",
+          "expected": 1
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.zero_input_valid",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E07",
+      "prompt": "在本书traits模型中，const int*的value_type与reference分别是什么？std::list<int>::iterator可以直接喂给std::sort吗？ 请说明依据与边界，并在result对象中给出这些字段：value_type, reference, list_std_sort_valid。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.value_type",
+          "expected": "int"
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.reference",
+          "expected": "const int&"
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.list_std_sort_valid",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E08",
+      "prompt": "一个只有Forward能力的有效迭代器，能用advance(i,-3)后退吗？若给deque随机存取迭代器，能据此推出整段物理地址连续吗？ 请说明依据与边界，并在result对象中给出这些字段：negative_advance_valid, random_access_implies_contiguous。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.negative_advance_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.random_access_implies_contiguous",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E09",
+      "prompt": "限定本项目SGI教学增长公式：原size=3、capacity=4，在index=2插入count=2。新size/capacity及是否重配置？ 请说明依据与边界，并在result对象中给出这些字段：size, capacity, reallocated。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.size",
+          "expected": 5
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.capacity",
+          "expected": 6
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.reallocated",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E10",
+      "prompt": "现代vector在容量足够时在中间insert一个元素。地址没重分配，能否断言所有旧迭代器都有效？也能否由本书要求所有实现容量翻倍？ 请说明依据与边界，并在result对象中给出这些字段：all_old_iterators_valid, universal_doubling。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.all_old_iterators_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.universal_doubling",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E11",
+      "prompt": "std::list A={1,2},B={9}，将A中指向2的单节点迭代器i用splice移到B末尾。A/B结果是什么？i所指节点身份保留吗？ 请说明依据与边界，并在result对象中给出这些字段：A, B, node_identity_preserved。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.A",
+          "expected": [
+            1
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.B",
+          "expected": [
+            9,
+            2
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.node_identity_preserved",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E12",
+      "prompt": "分析书中list区间transfer/splice时，position落在待转移[first,last)内部；能直接按普通区间重接步骤执行吗？“重接链接O(1)”能否推出所有splice调用都O(1)？ 请说明依据与边界，并在result对象中给出这些字段：ordinary_range_transfer_valid, all_splice_calls_constant。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.ordinary_range_transfer_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.all_splice_calls_constant",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E13",
+      "prompt": "只做相对算术：每缓冲8元素，offset=1，delta=-3。按向下取整计算node变化和新offset；真实范围是否合法需另核吗？ 请说明依据与边界，并在result对象中给出这些字段：node_delta, offset, needs_real_bounds_check。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.node_delta",
+          "expected": -1
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.offset",
+          "expected": 6
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.needs_real_bounds_check",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E14",
+      "prompt": "限定书中SGI __deque_buf_size(n,sz)：显式n=32且sizeof(T)=4。每缓冲是32元素还是32字节？现代标准deque是否也要求同一第三模板参数？ 请说明依据与边界，并在result对象中给出这些字段：buffer_elements, is_32_bytes, modern_same_template_required。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.buffer_elements",
+          "expected": 32
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.is_32_bytes",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.modern_same_template_required",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E15",
+      "prompt": "已有零基最大堆[9,7,8,1]，只调用pop_heap不pop_back。容器size、有效堆前缀长度、末尾值各是多少？ 请说明依据与边界，并在result对象中给出这些字段：size, heap_size, last_value。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.size",
+          "expected": 4
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.heap_size",
+          "expected": 3
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.last_value",
+          "expected": 9
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E16",
+      "prompt": "一个空vector，直接调用pop_heap；另一个stack要求通过公开接口随机遍历中间元素。两项前提分别满足吗？ 请说明依据与边界，并在result对象中给出这些字段：empty_pop_valid, stack_public_random_traversal。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.empty_pop_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.stack_public_random_traversal",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E17",
+      "prompt": "按本书红黑规则检查一棵树：根10黑，左5红，右15红，均无其他实节点，空叶黑。颜色与黑高不变量合法吗？旋转应保留哪种键顺序？ 请说明依据与边界，并在result对象中给出这些字段：rb_invariants_valid, rotation_preserves_inorder。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.rb_invariants_valid",
+          "expected": true
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.rotation_preserves_inorder",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E18",
+      "prompt": "比较器按绝对值排序，-2与2在有序容器里是否比较等价？map元素key能直接原地改成另一键吗？普通BST有序能保证最坏对数高度吗？ 请说明依据与边界，并在result对象中给出这些字段：comparison_equivalent, in_place_key_mutation_valid, bst_order_guarantees_log_height。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.comparison_equivalent",
+          "expected": true
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.in_place_key_mutation_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.bst_order_guarantees_log_height",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E19",
+      "prompt": "整数教学hash(key)=key，keys=[1,6,11]，桶数由5改7。按非负模依输入顺序列出重散列前后bucket索引和元素数。 请说明依据与边界，并在result对象中给出这些字段：old_indices, new_indices, element_count。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.old_indices",
+          "expected": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.new_indices",
+          "expected": [
+            1,
+            6,
+            4
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.element_count",
+          "expected": 3
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E20",
+      "prompt": "两个不同地址的const char*各含文本abc。用地址==当内容相等谓词，能正确实现内容键查找吗？一次遍历看似递增能证明hashtable有序吗？ 请说明依据与边界，并在result对象中给出这些字段：pointer_equality_is_content_equality, one_traversal_proves_order。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.pointer_equality_is_content_equality",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.one_traversal_proves_order",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E21",
+      "prompt": "已有整数数组[1,2,3,4,5]，copy_backward源[0,3)、目标尾5。是否合法？给出整个结果及返回起点索引。 请说明依据与边界，并在result对象中给出这些字段：valid, values, return_index。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.valid",
+          "expected": true
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.values",
+          "expected": [
+            1,
+            2,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.return_index",
+          "expected": 2
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E22",
+      "prompt": "已有数组[1,2,3,4,5]，普通顺序copy的源[0,3)、目标起点1。某指针memmove优化可能输出正确，这能使调用满足copy前提吗？不要运行。 请说明依据与边界，并在result对象中给出这些字段：valid, optimization_waives_preconditions。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.optimization_waives_preconditions",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E23",
+      "prompt": "对[0,1,0,2,0,3]用通用remove删除0。只报告有效前缀、new_end索引、算法后size、再erase尾后的size。 请说明依据与边界，并在result对象中给出这些字段：valid_prefix, new_end, size_before_erase, size_after_erase。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.valid_prefix",
+          "expected": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.new_end",
+          "expected": 3
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.size_before_erase",
+          "expected": 6
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.size_after_erase",
+          "expected": 3
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E24",
+      "prompt": "对[1,1,2,1,1]执行通用unique。给有效前缀和size；它是未经排序的全局去重吗？尾部值能作固定断言吗？ 请说明依据与边界，并在result对象中给出这些字段：valid_prefix, size, global_deduplication, tail_values_guaranteed。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.valid_prefix",
+          "expected": [
+            1,
+            2,
+            1
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.size",
+          "expected": 5
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.global_deduplication",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.tail_values_guaranteed",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E25",
+      "prompt": "对[1,2,2,4]以默认小于查2，lower/upper/equal_range索引是多少？ 请说明依据与边界，并在result对象中给出这些字段：lower, upper, equal_range。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.lower",
+          "expected": 1
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.upper",
+          "expected": 3
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.equal_range",
+          "expected": [
+            1,
+            3
+          ]
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E26",
+      "prompt": "默认升序lower_bound输入[3,1,2]查2，这个范围是否满足所需partition？在合法有序list上比较次数对数就意味着迭代器移动也必然对数吗？ 请说明依据与边界，并在result对象中给出这些字段：input_partition_valid, list_movement_logarithmic。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.input_partition_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.list_movement_logarithmic",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E27",
+      "prompt": "要求9个整数中前3个已排序且是最小的3个，其余任意；应选哪种标准算法？若改成只要第3秩与分区，需要两侧内部有序吗？ 请说明依据与边界，并在result对象中给出这些字段：algorithm, nth_sides_sorted_required。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.algorithm",
+          "expected": "partial_sort"
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.nth_sides_sorted_required",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E28",
+      "prompt": "对[2,2,2,2]执行nth_element(nth=begin()+2)，能否要求左边所有元素严格小于右边？能否用原来nth的数值定义结果秩？ 请说明依据与边界，并在result对象中给出这些字段：strict_cross_partition_required, original_nth_value_defines_rank。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.strict_cross_partition_required",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.original_nth_value_defines_rank",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E29",
+      "prompt": "accumulate对[1,2,3]，init=10，op为minus，结果多少？for_each用[](int& x){x+=10;}作用于[1,2,3]，元素能变化吗，结果是什么？ 请说明依据与边界，并在result对象中给出这些字段：accumulate, for_each_can_mutate, values。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.accumulate",
+          "expected": 4
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.for_each_can_mutate",
+          "expected": true
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.values",
+          "expected": [
+            11,
+            12,
+            13
+          ]
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E30",
+      "prompt": "accumulate初值10、空序列，结果是多少？若op不结合，能否在保持其顺序语义的名义下任意并行重排？for_each普通返回值会写回元素吗？ 请说明依据与边界，并在result对象中给出这些字段：empty_result, arbitrary_reordering_valid, for_each_return_written_back。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.empty_result",
+          "expected": 10
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.arbitrary_reordering_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.for_each_return_written_back",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E31",
+      "prompt": "vector v=[10,20,30]，r=rbegin()+1。*r与r.base()的正向索引各是多少？copy(v.rbegin(),v.rend(),back_inserter(empty_vector))的结果是什么？ 请说明依据与边界，并在result对象中给出这些字段：dereferenced, base_index, copied。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.dereferenced",
+          "expected": 20
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.base_index",
+          "expected": 2
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.copied",
+          "expected": [
+            30,
+            20,
+            10
+          ]
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E32",
+      "prompt": "rend().base()==begin()能否据此解引用rend？对vector可以用front_inserter吗？构造istream_iterator是否一定没有读取副作用？ 请说明依据与边界，并在result对象中给出这些字段：rend_dereference_valid, vector_front_inserter_supported, construction_guaranteed_no_read。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.rend_dereference_valid",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.vector_front_inserter_supported",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.construction_guaranteed_no_read",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E33",
+      "prompt": "仅按书中旧式绑定语义，用minus(a,b)=a-b，bind1st(minus,3)与bind2nd(minus,3)各在x=10得到多少？compose(f,g)中f(x)=3*x,g(x)=x+2，在x=4的结果？ 请说明依据与边界，并在result对象中给出这些字段：bind_first, bind_second, composed。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.bind_first",
+          "expected": -7
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.bind_second",
+          "expected": 7
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.composed",
+          "expected": 18
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E34",
+      "prompt": "旧bind2nd或compose接口在某现代C++模式不可用。能否仅凭书中示例声称所有现代库仍提供它们？lambda捕获引用指向已销毁对象，表达式等价能保证引用还有效吗？ 请说明依据与边界，并在result对象中给出这些字段：old_api_universally_available, equivalence_guarantees_lifetime。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.old_api_universally_available",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.equivalence_guarantees_lifetime",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E35",
+      "prompt": "[1,2,3,4,5]以middle偏移2执行rotate，结果？[1,3,2]执行next_permutation，序列及布尔返回值？ 请说明依据与边界，并在result对象中给出这些字段：rotated, next, has_next。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.rotated",
+          "expected": [
+            3,
+            4,
+            5,
+            1,
+            2
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.next",
+          "expected": [
+            2,
+            1,
+            3
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.has_next",
+          "expected": true
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    },
+    {
+      "case_id": "E36",
+      "prompt": "[3,2,1]执行next_permutation，返回值与结果是什么？普通单向迭代器是否满足reverse的双向能力要求？ 请说明依据与边界，并在result对象中给出这些字段：has_next, values, forward_reverse_valid。",
+      "assertions": [
+        {
+          "kind": "json_equals",
+          "value": "$.result.has_next",
+          "expected": false
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.values",
+          "expected": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "kind": "json_equals",
+          "value": "$.result.forward_reverse_valid",
+          "expected": false
+        }
+      ],
+      "compare_against": [
+        "without_skill"
+      ]
+    }
+  ]
+}

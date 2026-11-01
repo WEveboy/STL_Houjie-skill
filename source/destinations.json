@@ -1,0 +1,96 @@
+{
+  "variant": "single",
+  "entry": "stl-houjie",
+  "capabilities": {
+    "source-reading": {
+      "capability_id": "cap.stl-houjie.source-reading",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/source-reading.md"
+    },
+    "object-lifetime": {
+      "capability_id": "cap.stl-houjie.object-lifetime",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/object-lifetime.md"
+    },
+    "pool-allocation": {
+      "capability_id": "cap.stl-houjie.pool-allocation",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/pool-allocation.md"
+    },
+    "iterator-dispatch": {
+      "capability_id": "cap.stl-houjie.iterator-dispatch",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/iterator-dispatch.md"
+    },
+    "vector-state": {
+      "capability_id": "cap.stl-houjie.vector-state",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/vector-state.md"
+    },
+    "linked-sequences": {
+      "capability_id": "cap.stl-houjie.linked-sequences",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/linked-sequences.md"
+    },
+    "deque-navigation": {
+      "capability_id": "cap.stl-houjie.deque-navigation",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/deque-navigation.md"
+    },
+    "heap-adapters": {
+      "capability_id": "cap.stl-houjie.heap-adapters",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/heap-adapters.md"
+    },
+    "ordered-associative": {
+      "capability_id": "cap.stl-houjie.ordered-associative",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/ordered-associative.md"
+    },
+    "hash-table": {
+      "capability_id": "cap.stl-houjie.hash-table",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/hash-table.md"
+    },
+    "copy-contract": {
+      "capability_id": "cap.stl-houjie.copy-contract",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/copy-contract.md"
+    },
+    "logical-end": {
+      "capability_id": "cap.stl-houjie.logical-end",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/logical-end.md"
+    },
+    "ordered-ranges": {
+      "capability_id": "cap.stl-houjie.ordered-ranges",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/ordered-ranges.md"
+    },
+    "sorting-selection": {
+      "capability_id": "cap.stl-houjie.sorting-selection",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/sorting-selection.md"
+    },
+    "numeric-functors": {
+      "capability_id": "cap.stl-houjie.numeric-functors",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/numeric-functors.md"
+    },
+    "iterator-adapters": {
+      "capability_id": "cap.stl-houjie.iterator-adapters",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/iterator-adapters.md"
+    },
+    "callable-adapters": {
+      "capability_id": "cap.stl-houjie.callable-adapters",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/callable-adapters.md"
+    },
+    "range-reordering": {
+      "capability_id": "cap.stl-houjie.range-reordering",
+      "served_by": "stl-houjie",
+      "path": "references/capabilities/range-reordering.md"
+    }
+  }
+}

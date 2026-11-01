@@ -1,0 +1,381 @@
+[
+  {
+    "case_id": "E01",
+    "answer": "不成立。2、4、8只是该次SGI实现测试的观测；标准规定容量与重分配相关行为及复杂度要求，并未规定所有实现必须按2倍增长。应分别标明标准保证、特定版本实现策略与实验观测。",
+    "result": {
+      "universal_growth_requirement": false,
+      "must_separate_spec_and_implementation": true
+    }
+  },
+  {
+    "case_id": "E02",
+    "answer": "不能声称已核实内部调用链。需要最小复现、编译器及标准库版本、构建选项和崩溃栈等证据；目前只能提出待验证的假设。",
+    "result": {
+      "can_claim_verified_call_chain": false,
+      "needs_reproducer": true
+    }
+  },
+  {
+    "case_id": "E03",
+    "answer": "仅销毁已成功构造的前2个目标对象；第3个完整对象未构造成功，不能再对它调用完整对象析构。完成回滚后这块目标储存中活对象为0。释放原始储存由储存所有者另行负责，构造回滚不等于释放储存。",
+    "result": {
+      "destroy_count": 2,
+      "live_after_rollback": 0,
+      "deallocation_is_separate": true
+    }
+  },
+  {
+    "case_id": "E04",
+    "answer": "reserve后size仍为0，capacity至少为8。容量表示无需重分配可容纳的元素数，不表示已有元素。普通copy向begin起写3个元素要求有效目标元素范围，此处不满足；可使用back_inserter，或先resize(3)再复制。没有执行危险代码。",
+    "result": {
+      "size_after_reserve": 0,
+      "copy_destination_valid": false,
+      "reserve_constructs_elements": false
+    }
+  },
+  {
+    "case_id": "E05",
+    "answer": "按我所知的经典SGI第二级配置器：小块上限128字节、按8字节对齐，121字节属于第二级，上调为128，零基索引ceil(121/8)-1=15。这依赖该经典参数设定，未查验本书具体版本，不是现代标准allocator的通用要求。",
+    "result": {
+      "level": 2,
+      "class_bytes": 128,
+      "free_list_index": 15
+    }
+  },
+  {
+    "case_id": "E06",
+    "answer": "经典SGI策略中，129超过128字节小块上限，转交第一级配置器。0不能静默代入正字节数的小块索引公式，否则减1会产生非法或无符号下溢索引；零请求需单独处理。此处依据经典SGI知识，未核对书中版本。",
+    "result": {
+      "level": 1,
+      "zero_input_valid": false
+    }
+  },
+  {
+    "case_id": "E07",
+    "answer": "经典iterator_traits对const T*的特化取value_type=T、reference=const T&，因此为int和const int&。list迭代器只有双向能力，不能直接传给要求随机访问迭代器的std::sort；应使用list.sort()。未核对本书源码，但这是常见traits模型。",
+    "result": {
+      "value_type": "int",
+      "reference": "const int&",
+      "list_std_sort_valid": false
+    }
+  },
+  {
+    "case_id": "E08",
+    "answer": "仅有Forward能力不足以支持负步数advance；负距离要求双向或更强能力，并且目标不能越界。随机访问只保证相应迭代器操作与复杂度，不保证物理连续；deque可跨多个缓冲区。",
+    "result": {
+      "negative_advance_valid": false,
+      "random_access_implies_contiguous": false
+    }
+  },
+  {
+    "case_id": "E09",
+    "answer": "假定插入成功，新size为3+2=5，超过旧capacity=4，因此必须重配置。精确新capacity依赖本项目指定的教学公式，当前仅获题目而未获项目公式，不能将常见SGI增长策略当作已核实项目事实，因此保留未知。",
+    "result": {
+      "size": 5,
+      "capacity": null,
+      "reallocated": true
+    }
+  },
+  {
+    "case_id": "E10",
+    "answer": "不能。无重分配时，插入位置之前的旧迭代器保持有效，插入位置及之后的旧迭代器（含原end）失效。标准也没有要求各实现容量必须翻倍，书中策略只能在相应实现范围内解释。",
+    "result": {
+      "all_old_iterators_valid": false,
+      "universal_doubling": false
+    }
+  },
+  {
+    "case_id": "E11",
+    "answer": "移动后A为[1]，B为[9,2]。splice转移原节点，不是复制出新元素，i仍指向原来的2节点，现在属于B；这里假定两个list满足配置器相等等调用前提。",
+    "result": {
+      "A": [
+        1
+      ],
+      "B": [
+        9,
+        2
+      ],
+      "node_identity_preserved": true
+    }
+  },
+  {
+    "case_id": "E12",
+    "answer": "不能直接按普通有效区间转移处理：position落在待转移区间内部违反区间splice的有效调用前提，链接操作可能破坏结构。若讨论旧SGI内部函数，仍须看该版本的前提与特殊分支。局部重接链接为O(1)不能推出所有splice为O(1)；例如现代list跨容器区间转移还可能需要线性计数维护size。",
+    "result": {
+      "ordinary_range_transfer_valid": false,
+      "all_splice_calls_constant": false
+    }
+  },
+  {
+    "case_id": "E13",
+    "answer": "相对位置为1-3=-2；floor(-2/8)=-1，新offset=-2-(-1)*8=6。算术正确不代表实际迭代器合法，还要核对容器范围及所到缓冲区是否存在。",
+    "result": {
+      "node_delta": -1,
+      "offset": 6,
+      "needs_real_bounds_check": true
+    }
+  },
+  {
+    "case_id": "E14",
+    "answer": "经典SGI __deque_buf_size在n非0时直接返回n，单位为元素，因此为32个元素；sizeof(T)=4时元素储存合计128字节。现代标准deque不要求同一第三模板参数或该缓冲策略。此处依据经典SGI公式知识，未核验书中版本。",
+    "result": {
+      "buffer_elements": 32,
+      "is_32_bytes": false,
+      "modern_same_template_required": false
+    }
+  },
+  {
+    "case_id": "E15",
+    "answer": "pop_heap将最大值9移到末尾，并使前3个元素构成有效堆；算法没有删除容器元素，因此size仍为4，有效堆前缀长度3，末尾值9。",
+    "result": {
+      "size": 4,
+      "heap_size": 3,
+      "last_value": 9
+    }
+  },
+  {
+    "case_id": "E16",
+    "answer": "空范围不满足pop_heap的非空堆前提，不能直接调用。stack公开接口提供栈顶访问及入栈出栈等操作，没有供调用者随机遍历中间元素的接口。",
+    "result": {
+      "empty_pop_valid": false,
+      "stack_public_random_traversal": false
+    }
+  },
+  {
+    "case_id": "E17",
+    "answer": "合法：根黑，两个红节点的孩子均为黑色空叶，无相邻红节点；各条根至空叶路径黑节点数相等。旋转应保持中序遍历的键序列，因而保持搜索树的比较顺序；它本身不保证所有颜色不变量自动成立。",
+    "result": {
+      "rb_invariants_valid": true,
+      "rotation_preserves_inorder": true
+    }
+  },
+  {
+    "case_id": "E18",
+    "answer": "若比较器只按绝对值严格比较，则comp(-2,2)和comp(2,-2)均为false，两者比较等价。map的元素类型含const Key，不能直接原地修改key；需要通过节点提取等合法方式修改后重新插入。普通BST只规定顺序，可能退化成链，不能保证最坏对数高度。",
+    "result": {
+      "comparison_equivalent": true,
+      "in_place_key_mutation_valid": false,
+      "bst_order_guarantees_log_height": false
+    }
+  },
+  {
+    "case_id": "E19",
+    "answer": "教学模型按key对桶数取非负模：原来1、6、11模5均为1；改为7后依次为1、6、4。重散列不增删元素，元素数仍为3。真实unordered容器的桶数及映射策略不能仅由此教学假设推定。",
+    "result": {
+      "old_indices": [
+        1,
+        1,
+        1
+      ],
+      "new_indices": [
+        1,
+        6,
+        4
+      ],
+      "element_count": 3
+    }
+  },
+  {
+    "case_id": "E20",
+    "answer": "不能。const char*的==比较地址，不同地址即使都存abc也不相等；内容键需要内容比较，并配合一致的内容哈希。一次遍历偶然递增不构成有序保证，哈希容器没有按键排序的遍历契约。",
+    "result": {
+      "pointer_equality_is_content_equality": false,
+      "one_traversal_proves_order": false
+    }
+  },
+  {
+    "case_id": "E21",
+    "answer": "合法。copy_backward把源[0,3)反向复制到[2,5)，目标尾5不在禁止的(first,last]内，适合这种向右重叠。整个数组变为[1,2,1,2,3]，返回目标起点索引2。",
+    "result": {
+      "valid": true,
+      "values": [
+        1,
+        2,
+        1,
+        2,
+        3
+      ],
+      "return_index": 2
+    }
+  },
+  {
+    "case_id": "E22",
+    "answer": "不合法：目标起点1位于源[0,3)内，违反普通copy的前提。某实现采用memmove后表现正确，仍不能免除调用方遵守前提的义务；这种右移应使用copy_backward。按要求不运行。",
+    "result": {
+      "valid": false,
+      "optimization_waives_preconditions": false
+    }
+  },
+  {
+    "case_id": "E23",
+    "answer": "有效前缀为[1,2,3]，new_end索引3；remove仅压缩保留元素，不改变容器size，所以erase前为6。再erase(new_end,end)后size为3，尾部值不作断言。",
+    "result": {
+      "valid_prefix": [
+        1,
+        2,
+        3
+      ],
+      "new_end": 3,
+      "size_before_erase": 6,
+      "size_after_erase": 3
+    }
+  },
+  {
+    "case_id": "E24",
+    "answer": "unique只合并相邻的相等元素，得到有效前缀[1,2,1]；容器size仍为5，有效长度为3。未经排序时它不是全局去重，new_end之后的值不能固定断言。",
+    "result": {
+      "valid_prefix": [
+        1,
+        2,
+        1
+      ],
+      "size": 5,
+      "global_deduplication": false,
+      "tail_values_guaranteed": false
+    }
+  },
+  {
+    "case_id": "E25",
+    "answer": "范围升序，满足二分查找的分区要求。lower_bound为首个不小于2的位置1，upper_bound为首个大于2的位置3，equal_range为半开区间[1,3)。",
+    "result": {
+      "lower": 1,
+      "upper": 3,
+      "equal_range": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "case_id": "E26",
+    "answer": "不满足：元素是否小于2的结果依次为false、true、false，未形成true在前false在后的分区，因此不能据此调用lower_bound。对合法list，比较次数可以是对数级，但非随机访问迭代器的移动次数可以是线性级。",
+    "result": {
+      "input_partition_valid": false,
+      "list_movement_logarithmic": false
+    }
+  },
+  {
+    "case_id": "E27",
+    "answer": "选partial_sort(first,first+3,last)，它将最小的3个元素按序置于前3位，其余顺序不保证。如果仅需要第3小元素及分区，可用nth_element(first,first+2,last)，两侧内部不要求有序。这里第3秩按从1开始计数。",
+    "result": {
+      "algorithm": "partial_sort",
+      "nth_sides_sorted_required": false
+    }
+  },
+  {
+    "case_id": "E28",
+    "answer": "不能要求严格小于：重复值可分布在两侧，保证使用的是非严格的跨区顺序关系。nth位置由迭代器偏移确定，其结果是完全排序后该位置应有的值，原先恰在nth位置的数值并不定义所求秩。",
+    "result": {
+      "strict_cross_partition_required": false,
+      "original_nth_value_defines_rank": false
+    }
+  },
+  {
+    "case_id": "E29",
+    "answer": "accumulate按顺序左折叠，((10-1)-2)-3=4。for_each把元素以可修改引用传给该lambda，因此可原位得到[11,12,13]；前提是输入元素允许修改。",
+    "result": {
+      "accumulate": 4,
+      "for_each_can_mutate": true,
+      "values": [
+        11,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "case_id": "E30",
+    "answer": "空序列的accumulate直接得到初值10。非结合运算不能任意重排后仍声称保持它的顺序折叠语义。for_each忽略每次函数调用的普通返回值；修改元素需要通过引用等方式产生副作用。",
+    "result": {
+      "empty_result": 10,
+      "arbitrary_reordering_valid": false,
+      "for_each_return_written_back": false
+    }
+  },
+  {
+    "case_id": "E31",
+    "answer": "r指向值20，r.base()对应正向索引2，即值30的位置；反向迭代器解引用的是base的前一个元素。反向copy依次追加，目标得到[30,20,10]。",
+    "result": {
+      "dereferenced": 20,
+      "base_index": 2,
+      "copied": [
+        30,
+        20,
+        10
+      ]
+    }
+  },
+  {
+    "case_id": "E32",
+    "answer": "rend是反向尾后哨兵，不可解引用，base等于begin并不改变这一点。vector没有push_front，不能通过front_inserter完成插入。构造绑定输入流的istream_iterator通常就提取首个值，不能保证构造没有读取副作用；默认构造的结束迭代器另当别论。",
+    "result": {
+      "rend_dereference_valid": false,
+      "vector_front_inserter_supported": false,
+      "construction_guaranteed_no_read": false
+    }
+  },
+  {
+    "case_id": "E33",
+    "answer": "按题给旧式语义，bind1st固定第一个参数，得到3-10=-7；bind2nd固定第二个参数，得到10-3=7。compose(f,g)为f(g(x))，所以f(g(4))=3*(4+2)=18。这里只计算指定语义，不断言现代库存在这些接口。",
+    "result": {
+      "bind_first": -7,
+      "bind_second": 7,
+      "composed": 18
+    }
+  },
+  {
+    "case_id": "E34",
+    "answer": "不能。旧式绑定器的可用性取决于语言模式和库实现，compose也不是普遍标准接口，书中示例不足以保证现代库均提供。lambda引用捕获不会延长被引用对象的寿命，表达式等价不能修复悬垂引用。",
+    "result": {
+      "old_api_universally_available": false,
+      "equivalence_guarantees_lifetime": false
+    }
+  },
+  {
+    "case_id": "E35",
+    "answer": "rotate把middle所在元素移到开头并保持两段内部顺序，结果[3,4,5,1,2]。按默认升序的字典序，[1,3,2]的下一个排列是[2,1,3]，返回true。",
+    "result": {
+      "rotated": [
+        3,
+        4,
+        5,
+        1,
+        2
+      ],
+      "next": [
+        2,
+        1,
+        3
+      ],
+      "has_next": true
+    }
+  },
+  {
+    "case_id": "E36",
+    "answer": "[3,2,1]已经是默认比较下的最后一个排列，next_permutation返回false并重置为首个排列[1,2,3]。reverse要求双向迭代器及相应可交换条件，普通单向迭代器不满足要求。",
+    "result": {
+      "has_next": false,
+      "values": [
+        1,
+        2,
+        3
+      ],
+      "forward_reverse_valid": false
+    }
+  },
+  {
+    "case_id": "N01",
+    "answer": "两个简单选择：番茄鸡蛋面，一锅煮好；青椒肉丝配米饭，肉丝和青椒快炒即可。",
+    "result": {}
+  },
+  {
+    "case_id": "N02",
+    "answer": "把原来的自我介绍贴过来，我帮你保留岗位相关经历和亮点，压缩重复表达；如果有目标岗位，也一起告诉我。",
+    "result": {}
+  },
+  {
+    "case_id": "N03",
+    "answer": "Python字典用键保存和查找值，例如 d = {'name': '小王', 'age': 20}。用 d['name'] 读取已有键，用 d.get('city', '未知') 安全读取可能不存在的键；d['age'] = 21 可修改，d['city'] = '上海' 可新增，del d['age'] 可删除。用 'name' in d 判断键是否存在，用 for key, value in d.items(): 遍历键值对。键必须可哈希，例如字符串、整数；列表不能作键。",
+    "result": {}
+  }
+]

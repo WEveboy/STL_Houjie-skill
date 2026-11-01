@@ -1,0 +1,64 @@
+# 按所需次序选择排序、选择与归并
+
+## R — 原文锚点
+
+> 不保证有任何特定顺序。
+
+出处：§6.7.8，PDF425–427。
+
+> 实际的最佳值因设备而异。
+
+出处：§6.7.9，PDF435（页图核验）。
+
+## I — 方法解释
+
+全排序、前k个有序、固定秩和合并两段有序序列是不同任务。SGI sort通过快排分割、深度预算和堆回退约束退化，再处理小区间；nth_element只追需要的一侧，不能用结果未全局有序判它失败。归并是否有足够缓冲则改变实施路径。
+
+## A1 — 原书示例或标明的演练
+
+原书例题／程序演示（§6.7.12，PDF449）：
+
+输入22 30 30 17 33 40 17 23 22 12 20，nth为begin()+5。
+原书给出一种重排，其第六项为22，与全排序对应项相同。
+再按greater<int>处理时，第六项仍为22，但两侧按相反关系分隔。
+第六项原值40并不是固定枢轴合同；原书先说“小于原40”的解说不能推广为算法定义。
+
+原书报告：begin()+5最终为22；两侧各自无需有序，精确排列不具有可移植保证。
+
+证据边界：OCR；只把可核秩与分区关系用于验证，原文说明误导单独保留。不是本次重跑历史程序的结果。
+
+## A2 — 触发与近邻区分
+
+sort/stable_sort/partial_sort/nth_element/inplace_merge、IntroSort深度回退、top-k或重复值分区。
+
+以本卡输出契约为准；遇到相邻任务再补读heap-adapters；ordered-ranges；iterator-dispatch，不把一个术语命中当作已经完成任务。
+
+## E — 输入、执行与完成标准
+
+输入：所需输出（全序/稳定性/前k有序/第k秩/两段归并）、比较器、迭代器能力、k或middle和缓冲条件。
+1. 完整排序选sort，要求稳定则另选stable_sort；前k有序选partial_sort；只要秩与分区选nth_element。链表转成员sort。
+2. 第k秩验证与参考有序副本的同位元素等价，并验证任一右元素不小于任一左元素；不要求左右内部排序。nth==last时不解引用。
+3. 归并前验证两段以同一比较关系有序，解释有缓冲/不足缓冲的不同路径。
+4. 分析SGI实现时追深度预算、堆回退和小区间阈值；输出选择理由、前提、后置条件、复杂度与实现细节边界。
+
+需要代码时先查随包usage资源；没有运行条件应标注推演，不能声称实跑。
+
+## B — 边界与失败信号
+
+不把SGI阈值或每次pivot位置当现代标准要求。比较关系须满足要求；NaN等对象或不严格的比较器需先处理。nth不是“以原来第k元素值当阈值”，重复元素可以跨分区。
+
+## 相关能力
+
+heap-adapters；ordered-ranges；iterator-dispatch。依赖与组合关系按本卡A2/E说明使用；不要求每次全包加载。
+
+## 配套资源
+
+路径相对于本文件；脚本需先检查运行条件，不因附带而自动执行。
+
+- [resources/stl_lab.py](../../resources/stl_lab.py)
+- [resources/stl_extensions.py](../../resources/stl_extensions.py)
+- [resources/experiment_audit.py](../../resources/experiment_audit.py)
+- [resources/test_stl_lab.py](../../resources/test_stl_lab.py)
+- [resources/test_stl_extensions.py](../../resources/test_stl_extensions.py)
+- [resources/contract_checks.cpp](../../resources/contract_checks.cpp)
+- [resources/usage.md](../../resources/usage.md)

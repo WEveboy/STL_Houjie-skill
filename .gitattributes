@@ -1,0 +1,4 @@
+# Preserve frozen manifest bytes across Windows/Linux checkouts.
+* -text
+*.pdf binary
+*.png binary

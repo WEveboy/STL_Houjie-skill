@@ -1,0 +1,459 @@
+[
+  {
+    "case_id": "E01",
+    "would_trigger": true,
+    "selected_capability": "source-reading",
+    "answer": "不成立。2、4、8是书中某版SGI及该测试的观察，不是现代标准的统一容量公式。应先定位编译器、标准库版本、语言模式与类型，再由公开接口追踪真实源码分支，分开标准契约、实现策略和实验输出；现代vector没有必须翻倍的要求。",
+    "result": {
+      "universal_growth_requirement": false,
+      "must_separate_spec_and_implementation": true
+    }
+  },
+  {
+    "case_id": "E02",
+    "would_trigger": true,
+    "selected_capability": "source-reading",
+    "answer": "不能写成已核实调用链。尚缺可复现代码、触发输入、编译器及标准库版本、编译模式和错误现象。可以解释可能路径，但只有定位目标源码与实际实例化分支后才可称为追踪结果。",
+    "result": {
+      "can_claim_verified_call_chain": false,
+      "needs_reproducer": true
+    }
+  },
+  {
+    "case_id": "E03",
+    "would_trigger": true,
+    "selected_capability": "object-lifetime",
+    "answer": "这是生存期推演：目标中仅前2个对象完成构造，回滚销毁这2个，活对象归零；第3个未完成构造，不调用其完整对象析构（其已构造成员由语言规则清理），后两槽从未构造。释放整块储存另由拥有者按匹配协议负责；不涉及源对象或外部副作用回滚。",
+    "result": {
+      "destroy_count": 2,
+      "live_after_rollback": 0,
+      "deallocation_is_separate": true
+    }
+  },
+  {
+    "case_id": "E04",
+    "would_trigger": true,
+    "selected_capability": "object-lifetime",
+    "answer": "reserve后size仍为0，capacity至少8，表示可容纳元素数；它没有创建vector元素。begin()==end()，普通copy需要3个可写的目标元素，因此目标无效，不能靠容量充足绕过接口前提。可先resize(3)再copy，或copy到back_inserter(v)。未运行危险代码。",
+    "result": {
+      "size_after_reserve": 0,
+      "copy_destination_valid": false,
+      "reserve_constructs_elements": false
+    }
+  },
+  {
+    "case_id": "E05",
+    "would_trigger": true,
+    "selected_capability": "pool-allocation",
+    "answer": "限定历史SGI配置器：121在1..128字节内，走第二级。8*ceil(121/8)=128，零基索引ceil(121/8)-1=15。随包教学模型已实跑核对；该分档参数不是现代allocator统一规范。",
+    "result": {
+      "level": 2,
+      "class_bytes": 128,
+      "free_list_index": 15
+    }
+  },
+  {
+    "case_id": "E06",
+    "would_trigger": true,
+    "selected_capability": "pool-allocation",
+    "answer": "129>128，走第一级，不能进入小块自由链。n=0不在该分档公式的正整数输入域内，直接套用会产生负索引或无符号下溢，必须先处理输入前提。已运行教学模型：129返回一级，0被拒绝；未运行真实分配器。",
+    "result": {
+      "level": 1,
+      "zero_input_valid": false
+    }
+  },
+  {
+    "case_id": "E07",
+    "would_trigger": true,
+    "selected_capability": "iterator-dispatch",
+    "answer": "书中iterator_traits<const int*>特化的value_type是int，reference是const int&：值类型去掉顶层const，解引用仍不可写。list迭代器只有双向能力，std::sort要求随机存取，因此不可直接使用，应调用list::sort。这是能力契约推导，未编译反例。",
+    "result": {
+      "value_type": "int",
+      "reference": "const int&",
+      "list_std_sort_valid": false
+    }
+  },
+  {
+    "case_id": "E08",
+    "would_trigger": true,
+    "selected_capability": "iterator-dispatch",
+    "answer": "Forward迭代器不提供后退能力，advance(i,-3)不满足前提，应拒绝；即使是双向迭代器也需保证目标在合法范围内。deque随机存取说明支持跳跃和距离运算，不能推出物理连续；它可通过分段缓冲实现。",
+    "result": {
+      "negative_advance_valid": false,
+      "random_access_implies_contiguous": false
+    }
+  },
+  {
+    "case_id": "E09",
+    "would_trigger": true,
+    "selected_capability": "vector-state",
+    "answer": "现有余量4-3=1，小于插入2个，需要重配置。限定教学公式得到新capacity=3+max(3,2)=6，新size=5；index=2合法，原后缀长度1。已实跑教学模型核对，不能据此指定所有现代vector的容量。",
+    "result": {
+      "size": 5,
+      "capacity": 6,
+      "reallocated": true
+    }
+  },
+  {
+    "case_id": "E10",
+    "would_trigger": true,
+    "selected_capability": "vector-state",
+    "answer": "不能。现代vector中间插入且不重配置时，插入点之前的迭代器和引用保留，插入点及其后的旧迭代器（包括旧end）失效。地址不变不足以证明有效性。本书SGI增长策略也不能变成所有现代实现必须翻倍的要求；此处是契约分析，未解引用旧迭代器。",
+    "result": {
+      "all_old_iterators_valid": false,
+      "universal_doubling": false
+    }
+  },
+  {
+    "case_id": "E11",
+    "would_trigger": true,
+    "selected_capability": "linked-sequences",
+    "answer": "A变为[1]，B变为[9,2]。单节点splice重接节点而非复制节点值，i继续指向原来的2节点，现在该节点属于B；节点身份保留。标准allocator下两个list满足分配器相等前提；自定义分配器需另外检查。这是链接状态推演。",
+    "result": {
+      "A": [
+        1
+      ],
+      "B": [
+        9,
+        2
+      ],
+      "node_identity_preserved": true
+    }
+  },
+  {
+    "case_id": "E12",
+    "would_trigger": true,
+    "selected_capability": "linked-sequences",
+    "answer": "不能按普通区间重接执行：position位于待转移半开区间内部会破坏该操作所需的非重叠前提；现代list区间splice也不允许此情况。应先修正位置或区间。仅重接指针为O(1)，并不推出所有splice调用恒定时间：跨容器区间splice可能需要线性计数，定位区间也另有成本。",
+    "result": {
+      "ordinary_range_transfer_valid": false,
+      "all_splice_calls_constant": false
+    }
+  },
+  {
+    "case_id": "E13",
+    "would_trigger": true,
+    "selected_capability": "deque-navigation",
+    "answer": "q=1-3=-2，node_delta=floor(-2/8)=-1，new_offset=-2-(-1)*8=6。已由教学模型实跑核对相对算术。真实迭代器还需证明对应node、元素或尾后边界合法，算术结果本身不能授权越界。",
+    "result": {
+      "node_delta": -1,
+      "offset": 6,
+      "needs_real_bounds_check": true
+    }
+  },
+  {
+    "case_id": "E14",
+    "would_trigger": true,
+    "selected_capability": "deque-navigation",
+    "answer": "该SGI函数显式n非零时直接返回n，单位为元素，所以每缓冲32个元素；sizeof(T)=4时元素区约128字节。原书32bytes注释与函数口径冲突，应保留并指出冲突。现代std::deque没有必须采用相同第三模板参数的要求，不能据旧实现推广。",
+    "result": {
+      "buffer_elements": 32,
+      "is_32_bytes": false,
+      "modern_same_template_required": false
+    }
+  },
+  {
+    "case_id": "E15",
+    "would_trigger": true,
+    "selected_capability": "heap-adapters",
+    "answer": "只调用pop_heap把9放到末尾，修复前三个元素的最大堆，并未缩短容器。size=4，有效堆前缀长度3，末尾9；还需pop_back才真正删除。教学模型已实跑，得到[8,7,1,9]，具体内部调整排列不作为所有实现的唯一要求。",
+    "result": {
+      "size": 4,
+      "heap_size": 3,
+      "last_value": 9
+    }
+  },
+  {
+    "case_id": "E16",
+    "would_trigger": true,
+    "selected_capability": "heap-adapters",
+    "answer": "两项均不满足：pop_heap需要非空且有效的堆范围；空范围应直接拒绝，未运行危险C++。教学模型也已拒绝空堆pop。stack公开接口只有受约束的顶端访问与进出等操作，不提供任意位置迭代器或随机遍历；需遍历时应另选或另存容器。",
+    "result": {
+      "empty_pop_valid": false,
+      "stack_public_random_traversal": false
+    }
+  },
+  {
+    "case_id": "E17",
+    "would_trigger": true,
+    "selected_capability": "ordered-associative",
+    "answer": "合法：根黑，两个红节点的孩子都是黑空叶；每条根到空叶路径都含根和空叶两个黑节点（若不计空叶则均为1），黑高一致，中序为5、10、15。旋转必须保留中序键次序，颜色与黑高则仍需另核。这是给定小树的不变量推导。",
+    "result": {
+      "rb_invariants_valid": true,
+      "rotation_preserves_inorder": true
+    }
+  },
+  {
+    "case_id": "E18",
+    "would_trigger": true,
+    "selected_capability": "ordered-associative",
+    "answer": "按绝对值比较，comp(-2,2)和comp(2,-2)都为false，故二者比较等价，并不要求operator==相等。map的value_type中key为const，不能原地改键；可通过合法删除再插入，或现代node handle取出后改键再插入。普通BST仅保证搜索次序，可退化为链，高度最坏O(n)，需要平衡不变量才限制高度。",
+    "result": {
+      "comparison_equivalent": true,
+      "in_place_key_mutation_valid": false,
+      "bst_order_guarantees_log_height": false
+    }
+  },
+  {
+    "case_id": "E19",
+    "would_trigger": true,
+    "selected_capability": "hash-table",
+    "answer": "题设教学模型为bucket=key mod桶数。桶数5时依次是1、1、1，桶1含3项；桶数7时依次是1、6、4，这三个桶各含1项，其余桶为空。重散列重新定位，元素总数仍为3；不推断真实库的哈希与扩容策略。",
+    "result": {
+      "old_indices": [
+        1,
+        1,
+        1
+      ],
+      "new_indices": [
+        1,
+        6,
+        4
+      ],
+      "element_count": 3
+    }
+  },
+  {
+    "case_id": "E20",
+    "would_trigger": true,
+    "selected_capability": "hash-table",
+    "answer": "不能。不同地址用指针==比较得到false，即使文本均为abc。内容键查找需要内容相等谓词及相容哈希。一次遍历偶然递增也不能证明hashtable有序，桶分布、插入及重散列可能改变遍历次序。",
+    "result": {
+      "pointer_equality_is_content_equality": false,
+      "one_traversal_proves_order": false
+    }
+  },
+  {
+    "case_id": "E21",
+    "would_trigger": true,
+    "selected_capability": "copy-contract",
+    "answer": "普通顺序copy_backward合法：已有可写目标[2,5)，目标尾5不在源的(0,3]内。从后向前依次赋值到索引4、3、2，整个结果为[1,2,1,2,3]，返回目标起点索引2。",
+    "result": {
+      "valid": true,
+      "values": [
+        1,
+        2,
+        1,
+        2,
+        3
+      ],
+      "return_index": 2
+    }
+  },
+  {
+    "case_id": "E22",
+    "would_trigger": true,
+    "selected_capability": "copy-contract",
+    "answer": "不合法：普通顺序copy的目标起点1在源[0,3)内。某指针分支采用memmove并输出符合期待的结果，不会豁免接口前提；不运行此调用，也不承诺其输出。可改用源[0,3)、目标尾4的copy_backward。",
+    "result": {
+      "valid": false,
+      "optimization_waives_preconditions": false
+    }
+  },
+  {
+    "case_id": "E23",
+    "would_trigger": true,
+    "selected_capability": "logical-end",
+    "answer": "有效前缀为[1,2,3]，new_end索引3。通用remove稳定压缩保留项，不改变size，故仍为6；若是支持erase的序列容器，再erase(new_end,end)后size为3。原生数组自身没有erase，尾部不属于有效结果。",
+    "result": {
+      "valid_prefix": [
+        1,
+        2,
+        3
+      ],
+      "new_end": 3,
+      "size_before_erase": 6,
+      "size_after_erase": 3
+    }
+  },
+  {
+    "case_id": "E24",
+    "would_trigger": true,
+    "selected_capability": "logical-end",
+    "answer": "unique折叠相邻相等群，得到有效前缀[1,2,1]，new_end索引3；未erase时size仍为5。它不做未经排序的全局去重，尾部残余值不应作固定断言。",
+    "result": {
+      "valid_prefix": [
+        1,
+        2,
+        1
+      ],
+      "size": 5,
+      "global_deduplication": false,
+      "tail_values_guaranteed": false
+    }
+  },
+  {
+    "case_id": "E25",
+    "would_trigger": true,
+    "selected_capability": "ordered-ranges",
+    "answer": "零基索引：lower_bound是首个不小于2的位置1；upper_bound是首个大于2的位置3；equal_range为半开区间[1,3)。输入升序满足相应分区要求，允许重复值。",
+    "result": {
+      "lower": 1,
+      "upper": 3,
+      "equal_range": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "case_id": "E26",
+    "would_trigger": true,
+    "selected_capability": "ordered-ranges",
+    "answer": "输入不满足lower_bound的分区前提：x<2依次为false、true、false，不能划为true前缀和false后缀，因此不推断查询结果。合法list上的比较次数可为O(log N)，但迭代器移动可达O(N)，并不保证对数。",
+    "result": {
+      "input_partition_valid": false,
+      "list_movement_logarithmic": false
+    }
+  },
+  {
+    "case_id": "E27",
+    "would_trigger": true,
+    "selected_capability": "sorting-selection",
+    "answer": "选partial_sort(first,first+3,last)，使前3项为按比较器排序的最小3项，余项次序任意。只要第3秩及分区可用nth_element(first,first+2,last)，两侧内部无需排序。要求相应随机访问迭代器和合格比较关系。",
+    "result": {
+      "algorithm": "partial_sort",
+      "nth_sides_sorted_required": false
+    }
+  },
+  {
+    "case_id": "E28",
+    "would_trigger": true,
+    "selected_capability": "sorting-selection",
+    "answer": "不要求严格小于，全为2时两侧可以相等。nth_element要求右侧元素不小于左侧元素，nth位置与全排序同位元素等价。秩由位置及比较关系确定，原来nth的数值不是固定阈值；此例原值恰好也是2不改变契约。",
+    "result": {
+      "strict_cross_partition_required": false,
+      "original_nth_value_defines_rank": false
+    }
+  },
+  {
+    "case_id": "E29",
+    "would_trigger": true,
+    "selected_capability": "numeric-functors",
+    "answer": "accumulate按序左折叠，((10-1)-2)-3=4。for_each通过int&直接修改可写原对象，结果为[11,12,13]；这种改变来自引用副作用，而非函数返回值自动写回。",
+    "result": {
+      "accumulate": 4,
+      "for_each_can_mutate": true,
+      "values": [
+        11,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "case_id": "E30",
+    "would_trigger": true,
+    "selected_capability": "numeric-functors",
+    "answer": "空范围不调用op，返回初值10。accumulate按输入顺序计算acc=op(acc,x)，非结合操作不能在声称保持该语义时任意并行重排。for_each忽略普通返回值，不会自动写回；引用参数的直接修改另当别论。",
+    "result": {
+      "empty_result": 10,
+      "arbitrary_reordering_valid": false,
+      "for_each_return_written_back": false
+    }
+  },
+  {
+    "case_id": "E31",
+    "would_trigger": true,
+    "selected_capability": "iterator-adapters",
+    "answer": "*r为20；r.base()是该元素后一正向位置，索引2。有效反向迭代器满足*r=*prev(r.base())。逆向copy依次读取30、20、10，back_inserter依次push_back，得到[30,20,10]。",
+    "result": {
+      "dereferenced": 20,
+      "base_index": 2,
+      "copied": [
+        30,
+        20,
+        10
+      ]
+    }
+  },
+  {
+    "case_id": "E32",
+    "would_trigger": true,
+    "selected_capability": "iterator-adapters",
+    "answer": "rend不可解引用，虽base等于begin，取值却需要begin前的位置。vector没有push_front，不能有效使用front_inserter插入，可改用inserter(v,v.begin())。绑定输入流构造istream_iterator会初始读取，不能保证构造无读取副作用；默认构造结束迭代器是另一情形。",
+    "result": {
+      "rend_dereference_valid": false,
+      "vector_front_inserter_supported": false,
+      "construction_guaranteed_no_read": false
+    }
+  },
+  {
+    "case_id": "E33",
+    "would_trigger": true,
+    "selected_capability": "callable-adapters",
+    "answer": "按题定旧语义，bind1st(minus,3)(10)=3-10=-7，bind2nd(minus,3)(10)=10-3=7。compose(f,g)(4)=f(g(4))=3*(4+2)=18。这是历史接口语义推演，不断言现代库提供这些接口。",
+    "result": {
+      "bind_first": -7,
+      "bind_second": 7,
+      "composed": 18
+    }
+  },
+  {
+    "case_id": "E34",
+    "would_trigger": true,
+    "selected_capability": "callable-adapters",
+    "answer": "不能从旧书例子断言所有现代库都提供旧接口，应核对标准模式和具体库；书中compose属于SGI扩展。可按已知语义迁移到lambda，但表达式等价不会延长引用目标生存期，已销毁对象的引用不能据此变得有效。",
+    "result": {
+      "old_api_universally_available": false,
+      "equivalence_guarantees_lifetime": false
+    }
+  },
+  {
+    "case_id": "E35",
+    "would_trigger": true,
+    "selected_capability": "range-reordering",
+    "answer": "rotate将[1,2]接到[3,4,5]后面并保持各段内部次序，得到[3,4,5,1,2]。默认升序比较时，[1,3,2]的下一字典序排列为[2,1,3]，返回true。假定范围有效且迭代器满足要求。",
+    "result": {
+      "rotated": [
+        3,
+        4,
+        5,
+        1,
+        2
+      ],
+      "next": [
+        2,
+        1,
+        3
+      ],
+      "has_next": true
+    }
+  },
+  {
+    "case_id": "E36",
+    "would_trigger": true,
+    "selected_capability": "range-reordering",
+    "answer": "默认升序比较时[3,2,1]已为最大字典序排列，next_permutation返回false并恢复最小排列[1,2,3]。普通reverse要求双向迭代器，只有前进能力的单向迭代器不满足要求。",
+    "result": {
+      "has_next": false,
+      "values": [
+        1,
+        2,
+        3
+      ],
+      "forward_reverse_valid": false
+    }
+  },
+  {
+    "case_id": "N01",
+    "would_trigger": false,
+    "selected_capability": null,
+    "answer": "两个简单选择：番茄鸡蛋面，炒好番茄鸡蛋后加水煮面；青菜肉丝盖饭，炒熟肉丝和青菜，盖在米饭上即可。",
+    "result": {}
+  },
+  {
+    "case_id": "N02",
+    "would_trigger": false,
+    "selected_capability": null,
+    "answer": "请贴出原自我介绍，我才能保留真实经历并精简。可先压成这个结构：您好，我是[姓名]，有[相关经历]，主要负责[工作]，取得过[具体成果]，希望应聘[岗位]。",
+    "result": {}
+  },
+  {
+    "case_id": "N03",
+    "would_trigger": false,
+    "selected_capability": null,
+    "answer": "Python字典保存键值对，例如d={'name':'小明','age':20}。d['name']读取值；d.get('city','未知')可给缺失键默认值；d['age']=21更新，d['city']='上海'新增；del d['city']删除。用'name' in d检查键是否存在，用for k,v in d.items(): print(k,v)遍历。键必须可哈希，如字符串和整数；列表不能直接作键。",
+    "result": {}
+  }
+]
