@@ -6,4 +6,4 @@
 - 已完成增量：11模型、归档/审计重算；相关4卡revision=2。初版39题代理结果保留原范围，新工具另以26组程序测试和16组C++实验核验。
 - 独立代理额度耗尽后，新增工具由主流程完成实际程序验收，未伪称新增盲测。真实DeepSeek付费会话未执行。
 - 公开交付：source保存原创作者源及审计，skills/stl-houjie为完整安装源；不分发原书和OCR。
-- 当前发布状态：准备上传并核对远端CI与Release；最终结果写入docs/PUBLICATION.md及发行资产核验记录。
+- 当前发布状态：全部约定阶段已完成。127文件远端哈希一致、Windows/Linux CI与发布任务通过、7资产下载核验及两平台31运行文件一致性通过。最终证据见docs/PUBLICATION.md与docs/release-verification.json。

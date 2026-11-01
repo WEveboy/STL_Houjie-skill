@@ -1,0 +1,51 @@
+{
+  "status": "downloaded_and_verified",
+  "release": "https://github.com/WEveboy/STL_Houjie-skill/releases/tag/edition-v1.0.0",
+  "assets": [
+    {
+      "name": "Codex-First-Edition.pdf",
+      "bytes": 390566,
+      "sha256": "b6b135c90a8d3b2158aaee934ad8051f5b910e6c53af55560462f56bccb52f76",
+      "url": "https://github.com/WEveboy/STL_Houjie-skill/releases/download/edition-v1.0.0/Codex-First-Edition.pdf"
+    },
+    {
+      "name": "DeepSeek-First-Edition.pdf",
+      "bytes": 393261,
+      "sha256": "7822da3cc787fbd3efb39e84bbfe64ea1a2174b9445679d9cea3e96a6da53bc9",
+      "url": "https://github.com/WEveboy/STL_Houjie-skill/releases/download/edition-v1.0.0/DeepSeek-First-Edition.pdf"
+    },
+    {
+      "name": "dsh-stl-houjie-1.0.0.tgz",
+      "bytes": 53901,
+      "sha256": "5d9af64bb85ec4df2c1d77989d88d98c16e691daa5d7d1389118b1bb7233e682",
+      "url": "https://github.com/WEveboy/STL_Houjie-skill/releases/download/edition-v1.0.0/dsh-stl-houjie-1.0.0.tgz"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 557,
+      "sha256": "3df6568d13e37aa2698ef735cb8951871aeabb240d1c0071a99be5aecc045156",
+      "url": "https://github.com/WEveboy/STL_Houjie-skill/releases/download/edition-v1.0.0/SHA256SUMS.txt"
+    },
+    {
+      "name": "stl-houjie-Codex-1.0.0.zip",
+      "bytes": 889843,
+      "sha256": "6734a9d5f63b4f346b86ece3ed489f1ee1c4adeb62c5ef38828bc8ad277a7d9a",
+      "url": "https://github.com/WEveboy/STL_Houjie-skill/releases/download/edition-v1.0.0/stl-houjie-Codex-1.0.0.zip"
+    },
+    {
+      "name": "stl-houjie-DeepSeek-1.0.0.zip",
+      "bytes": 863861,
+      "sha256": "82aaf35b4559ccddfb0de76035d5f2c10e78275a8726d923a4c663ce2347dd22",
+      "url": "https://github.com/WEveboy/STL_Houjie-skill/releases/download/edition-v1.0.0/stl-houjie-DeepSeek-1.0.0.zip"
+    },
+    {
+      "name": "stl-houjie-source-1.0.0.zip",
+      "bytes": 1136897,
+      "sha256": "3314c284b3cf6a0a1bebd3ef82013dbec950675160b27d90b873743339bc4e3e",
+      "url": "https://github.com/WEveboy/STL_Houjie-skill/releases/download/edition-v1.0.0/stl-houjie-source-1.0.0.zip"
+    }
+  ],
+  "identical_runtime_files": 31,
+  "published_codex_install_smoke": "passed",
+  "DSH_scope": "archive payload/registry contract; paid model session not executed"
+}
